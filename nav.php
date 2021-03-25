@@ -20,8 +20,8 @@ $link8=$row3->link8;
 		<span><img src="assets/images/logo_white.png" width="40" /></span>
 	  </button>
 	  <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse.show"  id="navbarTogglerDemo01">
-	  <li><a id="imgBrand" class="navbar-brand nav-link active" href="index.php"><img src="assets/images/logo_white.png" width="70" /><span class="sr-only">(current)</span></a></li>
 	   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	  <li><a id="imgBrand" class="navbar-brand nav-link active" href="#home"><img src="assets/images/logo_white.png" width="70" /><span class="sr-only">(current)</span></a></li>
 
 		  <li class="nav-item">
 		    <a id="link1" class="nav-link" href="#link1"><?php echo $link1; ?></a>
@@ -47,7 +47,17 @@ $link8=$row3->link8;
 		  <li class="nav-item">
 			<a id="link8" class="nav-link" href="#link8"><?php echo $link8; ?></a>
 		  </li>
+		   <li class="nav-item">
+   <div class="input-group col-md-10  col-lg-12">
+            <input class="form-control py-2 border-right-0 border" type="search" id="example-search-input">
+            <span class="input-group-append">
+              <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                    <i class="fa fa-search"></i>
+              </button>
+            </span>
+        </div>		  </li>
 		</ul>
+		
 	  </div> <!-- navbar-->
 
 	  </div> <!-- navbar-->

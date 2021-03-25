@@ -4,6 +4,10 @@
 <meta property="og:image" content="https://sitesappsimages.com/assets/images/thumb.png" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="icon" type="image/png" href="https://www.sitesappsimages.com/talis/assets/icons/logo_icon.png">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 
 //@media screen and (min-width: 30em) and (orientation: landscape) {section { padding-top: 400px; }}
@@ -21,9 +25,37 @@
 //@media (min-width: 980px) { section { padding-top: 120px; } }
 //@media (min-width: 1350px) { section { padding-top: 180px; } }
 body {
+	font-family: Montserrat, sans-serif;
+	background-image:url('assets/images/photo.png');
+	background-color:#a371d9;
+	background-image:align-right;
+	background-image:cover;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
 	height:100%;
 	margin:auto;
 }
+
+
+#main {
+background-color:rgb(255,255,255);opacity:0.85;
+padding-top:8px;
+}
+
+
+
+a,ul,li,dt,dd,label,.placeholder,h1,h2,h3,h4,section,article,footer,header,p,input,div,.btn {
+	color:#333;
+	font-family: Montserrat, sans-serif;
+	}
+
+ .btn {
+ 	font-family:Montserrat;
+ 	font-weight:800;
+ }
 
 
 .icon-bar {
@@ -37,7 +69,7 @@ body {
 }
 
 .top-container {
-  background-color: #232323;
+  background-color: #492dbe;
   padding: 0px;
   font-weight:500;
   text-align: center;
@@ -46,11 +78,12 @@ body {
 }
 
 .header {
-  padding: 10px 16px;
+  //padding: 10px 16px;
   background: #fff;
   border-bottom: 5px solid silver;
   color: #f1f1f1;
-  z-index: 8888;
+  z-index: 888;
+  padding-right:0;
 }
 
 .navbar {
@@ -60,6 +93,7 @@ body {
 .navbar li {
  padding-left:.7em;
  padding-right:.7em;
+ font-family: Montserrat, sans-serif;
 }
 
 .content {
@@ -76,16 +110,14 @@ body {
   //padding-top: 102px;
 }
 img {
-	max-width:100%
-}
-.bg-custom {
-    background-color:transparent;
+	max-width:100%;
+	height:auto;
 }
 
 /* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
 .icon-bar {
   position: fixed;
-	z-index:99999;
+	z-index:1000;
   top:	55%;
 	right: 0;
   -webkit-transform: translateY(-50%);
@@ -105,68 +137,38 @@ img {
 
 /* Style the social media icons with color, if you want */
 .icon-bar a:hover {
-  background-color: #000;
+  background-color: #baa6a6;
 }
 
 .facebook {
-  background: #3B5998;
-  color: white;
+  //background: #3B5998;
+  //color: white;
+
 }
 
 .twitter {
-  background: #55ACEE;
-  color: white;
+  //background: #55ACEE;
+  //color: white;
 }
 
 .google {
-  background: #dd4b39;
-  color: white;
+  //background: #dd4b39;
+  //color: white;
 }
 
-.linkedin {
-  background: #007bb5;
-  color: white;
+.instagram {
+  //background: #007bb5;
+  //color: white;
 }
 
-.youtube {
-  background: #bb0000;
-  color: white;
-}
-.img-fluid-height {
-  max-height: 100%;
-  object-fit: contain;
-  overlow:hidden;
-  padding:8px;
+.pinterest {
+  //background: #bb0000;
+  //color: white;
 }
 
-
- #l1 {
- display:none;
- }
- #l2 {
- display:none;
- }
- #l3 {
- display:none;
- }
- #l4 {
- display:none;
- }
- #l5 {
- display:none;
- }
- #l6 {
- display:none;
- }
- #l7 {
- display:none;
- }
- #l8 {
- display:none;
- }
-
-
-
+li.nav-item {
+	text-decoration:none !important	;
+}
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
