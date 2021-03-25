@@ -169,6 +169,8 @@ img {
 li.nav-item {
 	text-decoration:none !important	;
 }
+
+
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -244,17 +246,6 @@ include('nav.php');
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-<script>
-$(document).ready(function() {
-	//alert("hey");
-		$('#menuButton').click(function(){
-		$("#imgBrand").hide();
-  });
-});
-
-
-</script>
 
 <script>
 $( "#imgBrand" ).click(function() {
@@ -357,6 +348,20 @@ $( "#link7" ).click(function() {
 
 });
 $( "#link8" ).click(function() {
+  $( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).show();
+
+});
+</script>
+<script>
+$(document).ready(function() {
   $( "#home" ).hide();
   $( "#l1" ).hide();
   $( "#l2" ).hide();

@@ -53,9 +53,9 @@ include('comm_connect.php');
 
 
 		if($res13 = $mysqli->query("SELECT * FROM classifieds where siteid='$siteid' and delrec != 'on' and link2 = 'on'")){
-		if($row13=$res12->fetch_object()){
+		if($row13=$res13->fetch_object()){
 
-		echo "<div id='home' class='col-md-10 offset-md-2' style='min-height:240px !important;'>";
+		echo "<div id='l2' class='col-md-10 offset-md-2' style='min-height:240px !important;'>";
 
 		do{
 		if(isset($row13->authname)) { $authname= $row13->authname; }
@@ -99,9 +99,9 @@ include('comm_connect.php');
 
 
 		if($res15 = $mysqli->query("SELECT * FROM classifieds where siteid='$siteid' and delrec != 'on' and link4 = 'on'")){
-		if($row15=$res14->fetch_object()){
+		if($row15=$res15->fetch_object()){
 
-		echo "<div id='home' class='col-md-10 offset-md-2' style='min-height:240px !important;'>";
+		echo "<div id='l4' class='col-md-10 offset-md-2' style='min-height:240px !important;'>";
 
 		do{
 		if(isset($row15->authname)) { $authname= $row15->authname; }
@@ -146,7 +146,7 @@ include('comm_connect.php');
 		if($res17 = $mysqli->query("SELECT * FROM classifieds where siteid='$siteid' and delrec != 'on' and link6 = 'on'")){
 		if($row17=$res17->fetch_object()){
 
-		echo "<div id='home' class='col-md-10 offset-md-2' style='min-height:240px !important;'>";
+		echo "<div id='l6' class='col-md-10 offset-md-2' style='min-height:240px !important;'>";
 
 		do{
 		if(isset($row17->authname)) { $authname= $row17->authname; }
