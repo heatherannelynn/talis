@@ -21,7 +21,7 @@ include('comm_connect.php');
   			printf('<h4>%s</h4>',$title);
   			printf('<p class="lead">%s</p>',$author);
 			printf('<div class="float-left"><img class="img-fluid-height" src="%s" /></div>',$image_name);
-  			printf('<p class="para">%s</p>',$thislisting);
+  			printf('<p class="para">%s</p><object>%s</object>',$thislisting, $embed_code);
 		
 		}while($row11=$res11->fetch_object());
   		echo "</div>";
