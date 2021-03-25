@@ -10,7 +10,7 @@ include('comm_connect.php');
 		if($res11 = $mysqli->query("SELECT * FROM classifieds where siteid='$siteid' and delrec != 'on' and featured = 'on'")){
 		if($row11=$res11->fetch_object()){
 
-		echo "<div id='home' class='col-md-10 offset-md-2' style='min-height:240px !important;'>";
+		echo "<div id='home' class='col-9 offset-3'  style='min-height:240px !important;'>";
 
 		do{
 		if(isset($row11->authname)) { $authname= $row11->authname; }
@@ -18,10 +18,11 @@ include('comm_connect.php');
   		if(isset($row11->title)) {$title = $row11->title; }
   		if(isset($row11->thislisting)) {$thislisting = $row11->thislisting; }
   		if(!isset($row11->image_name)) {$image_name = $row11->image_name; } else { $image_name="https://www.sitesappsimages.com/talis/assets/images/logo_white.png";}
+			printf('<div class="float-left"><img width=70 src="%s" /></div>',$image_name);
   			printf('<h4>%s</h4>',$title);
   			printf('<p class="lead">%s</p>',$author);
-			printf('<div class="float-left"><img class="img-fluid-height" src="%s" /></div>',$image_name);
-  			printf('<p class="para">%s</p><object>%s</object>',$thislisting, $embed_code);
+  			printf('<p class="para">%s</p>',$thislisting);
+			printf('<object>%s</object>',$embed_code);
 		
 		}while($row11=$res11->fetch_object());
   		echo "</div>";
@@ -43,7 +44,7 @@ include('comm_connect.php');
   			printf('<h4>%s</h4>',$title);
   			printf('<p class="lead">%s</p>',$author);
 			printf('<div class="float-left"><img class="img-fluid-height" src="%s" /></div>',$image_name);
-  			printf('<p class="para">%s</p>',$thislisting);
+  			printf('<p class="para">%s</p><object>%s</object>',$thislisting, $embed_code);
 		
 		}while($row12=$res12->fetch_object());
   		echo "</div>";
@@ -66,7 +67,7 @@ include('comm_connect.php');
   			printf('<h4>%s</h4>',$title);
   			printf('<p class="lead">%s</p>',$author);
 			printf('<div class="float-left"><img class="img-fluid-height" src="%s" /></div>',$image_name);
-  			printf('<p class="para">%s</p>',$thislisting);
+  			printf('<p class="para">%s</p><object>%s</object>',$thislisting, $embed_code);
 		
 		}while($row13=$res13->fetch_object());
   		echo "</div>";
@@ -90,7 +91,7 @@ include('comm_connect.php');
   			printf('<h4>%s</h4>',$title);
   			printf('<p class="lead">%s</p>',$author);
 			printf('<div class="float-left"><img class="img-fluid-height" src="%s" /></div>',$image_name);
-  			printf('<p class="para">%s</p>',$thislisting);
+  			printf('<p class="para">%s</p><object>%s</object>',$thislisting, $embed_code);
 		
 		}while($row14=$res14->fetch_object());
   		echo "</div>";
@@ -112,7 +113,7 @@ include('comm_connect.php');
   			printf('<h4>%s</h4>',$title);
   			printf('<p class="lead">%s</p>',$author);
 			printf('<div class="float-left"><img class="img-fluid-height" src="%s" /></div>',$image_name);
-  			printf('<p class="para">%s</p>',$thislisting);
+  			printf('<p class="para">%s</p><object>%s</object>',$thislisting, $embed_code);
 		
 		}while($row15=$res15->fetch_object());
   		echo "</div>";
@@ -134,7 +135,7 @@ include('comm_connect.php');
   			printf('<h4>%s</h4>',$title);
   			printf('<p class="lead">%s</p>',$author);
 			printf('<div class="float-left"><img class="img-fluid-height" src="%s" /></div>',$image_name);
-  			printf('<p class="para">%s</p>',$thislisting);
+  			printf('<p class="para">%s</p><object>%s</object>',$thislisting, $embed_code);
 		
 		}while($row16=$res16->fetch_object());
   		echo "</div>";
@@ -157,7 +158,7 @@ include('comm_connect.php');
   			printf('<h4>%s</h4>',$title);
   			printf('<p class="lead">%s</p>',$author);
 			printf('<div class="float-left"><img class="img-fluid-height" src="%s" /></div>',$image_name);
-  			printf('<p class="para">%s</p>',$thislisting);
+  			printf('<p class="para">%s</p><object>%s</object>',$thislisting, $embed_code);
 		
 		}while($row17=$res17->fetch_object());
   		echo "</div>";
@@ -180,7 +181,7 @@ include('comm_connect.php');
   			printf('<h4>%s</h4>',$title);
   			printf('<p class="lead">%s</p>',$author);
 			printf('<div class="float-left"><img class="img-fluid-height" src="%s" /></div>',$image_name);
-  			printf('<p class="para">%s</p>',$thislisting);
+  			printf('<p class="para">%s</p><object>%s</object>',$thislisting, $embed_code);
 		
 		}while($row18=$res18->fetch_object());
   		echo "</div>";
@@ -203,7 +204,7 @@ include('comm_connect.php');
   			printf('<h4>%s</h4>',$title);
   			printf('<p class="lead">%s</p>',$author);
 			printf('<div class="float-left"><img class="img-fluid-height" src="%s" /></div>',$image_name);
-  			printf('<p class="para">%s</p>',$thislisting);
+  			printf('<p class="para">%s</p><object>%s</object>',$thislisting, $embed_code);
 		
 		}while($row19=$res19->fetch_object());
   		echo "</div>";

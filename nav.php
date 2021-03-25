@@ -15,11 +15,11 @@ $link6=$row3->link6;
 $link7=$row3->link7;
 $link8=$row3->link8;
 ?>
-<div class="container-fluid"><nav class="header sticky-top navbar navbar-expand-lg navbar-light bg-light">
-	  <button id="menuButton" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+<div class="container-fluid"><nav style="z-index:999;position:fixed;width:100%;" class="header sticky navbar navbar-expand-lg navbar-light bg-light">
+	  <button id="menuButton" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
 		<span><img src="assets/images/logo_white.png" width="40" /></span>
 	  </button>
-	  <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse.show"  id="navbarTogglerDemo01">
+	  <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse.show"  id="navbarToggler">
 	   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 	  <li><a id="imgBrand" class="navbar-brand nav-link active" href="#home"><img src="assets/images/logo_white.png" width="70" /><span class="sr-only">(current)</span></a></li>
 
@@ -62,7 +62,7 @@ $link8=$row3->link8;
 
 	  </div> <!-- navbar-->
 	</nav>
-
+<div style="padding-top:120px;"></div>
 <?php
 } else { echo "Error grabbing primary links."; }
 ?>
