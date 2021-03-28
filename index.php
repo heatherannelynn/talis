@@ -39,7 +39,6 @@ body {
 	margin:auto;
 }
 
-
 #main {
 background-color:rgb(255,255,255);opacity:0.85;
 padding-top:8px;
@@ -170,6 +169,10 @@ li.nav-item {
 	text-decoration:none !important	;
 }
 
+.home {
+	padding-top:120px;
+
+}
 
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -190,8 +193,6 @@ include('nav.php');
 
 <table style="height:100%;">
 <tr style="height:100%;"><td style="height:100%;vertical-align:text-top;">
-
-
 		<?php
 		//grabbing catlinks
 		$res3 = $mysqli->query("select * from catlinks where delrec != 'on' and siteid='$siteid'");
@@ -234,7 +235,8 @@ include('nav.php');
 		//grabbing weblinks
 		} else { echo $siteid; }
 		?>
-
+		
+ 
 </td><td style="height:100%;vertical-align:text-top;">
 		<?php
 		include('grab_index.php');
@@ -362,7 +364,8 @@ $( "#link8" ).click(function() {
 </script>
 <script>
 $(document).ready(function() {
-  $( "#home" ).hide();
+$("iframe").addClass('embed-responsive-item');
+  $( "#home" ).show();
   $( "#l1" ).hide();
   $( "#l2" ).hide();
   $( "#l3" ).hide();
@@ -371,7 +374,6 @@ $(document).ready(function() {
   $( "#l6" ).hide();
   $( "#l7" ).hide();
   $( "#l8" ).show();
-
 });
 </script>
 

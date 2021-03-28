@@ -6,30 +6,29 @@ include('comm_connect.php');
 
 
 
-
 		if($res11 = $mysqli->query("SELECT * FROM classifieds where siteid='$siteid' and delrec != 'on' and featured = 'on'")){
 		if($row11=$res11->fetch_object()){
-
-		echo "<div id='home' class='col-9 offset-3'  style='min-height:240px !important;'>";
+		echo '<div style="padding-top:120px;"></div>';
+		echo "<div id='home' class='container'>";
 
 		do{
+		echo "<div class='row'><div class='col-sm'>";
 		if(isset($row11->authname)) { $authname= $row11->authname; }
   		if(isset($row11->embed_code)) {$embed_code = $row11->embed_code; }
   		if(isset($row11->title)) {$title = $row11->title; }
   		if(isset($row11->thislisting)) {$thislisting = $row11->thislisting; }
   		if(!isset($row11->image_name)) {$image_name = $row11->image_name; } else { $image_name="https://www.sitesappsimages.com/talis/assets/images/logo_white.png";}
-			printf('<div class="float-left"><img width=70 src="%s" /></div>',$image_name);
   			printf('<h4>%s</h4>',$title);
   			printf('<p class="lead">%s</p>',$author);
-  			printf('<p class="para">%s</p>',$thislisting);
-			printf('<object>%s</object>',$embed_code);
-		
+			printf('<div class="float-left"><img class="img-fluid-height" src="%s" /></div>',$image_name);
+  			printf('<p class="para">%s</p><object>%s</object>',$thislisting, $embed_code);
+		echo "</div></div>";
 		}while($row11=$res11->fetch_object());
   		echo "</div>";
 		}
 		}
 
-
+		/*
 		if($res12 = $mysqli->query("SELECT * FROM classifieds where siteid='$siteid' and delrec != 'on' and link1 = 'on'")){
 		if($row12=$res12->fetch_object()){
 
@@ -211,5 +210,5 @@ include('comm_connect.php');
 		}
 		}
 
-
+*/
 ?>

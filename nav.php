@@ -62,7 +62,7 @@ $link8=$row3->link8;
 
 	  </div> <!-- navbar-->
 	</nav>
-<div style="padding-top:120px;"></div>
+<!--<div style="padding-top:120px;"></div>-->
 <?php
 } else { echo "Error grabbing primary links."; }
 ?>
