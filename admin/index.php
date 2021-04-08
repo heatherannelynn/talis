@@ -28,14 +28,16 @@ php_value default_mimetype "text/css"
 <!-- TODO - ADD SHOWDATE HIDE DATE, TITLE, CLASS ID - NEEDS MORE DEFINITION... -->
 <div class="container">
 <nav class="navbar sticky navbar-expand-lg navbar-collapse" data-target="mainNav" >
-<div id="mainNav" data-toggle="collapse"><li><a id="l1" onclick="jumpTo('l1'); return('true');" href='#link1'>Site Themes</a><li>
-<li><a id="l2" onclick="jumpTo('l2'); return('true');" href='#link2'>Primary Links</a></li>
-<li><a id="l3" onclick="jumpTo('l3'); return('true');" href='#link3'>Left Side</a></li>
-<li><a id="l4" onclick="jumpTo('l4'); return('true');" href='#link4'>Menu</a></li>
-<li><a id="l5" onclick="jumpTo('l5'); return('true');" href='#link5'>Categories</a></li>
-<li><a id="l6" onclick="jumpTo('l6'); return('true');" href='#link6'>Images/Videos</a></li>
-<li><a id="l7" onclick="jumpTo('l7'); return('true');" href='#link7'>Add Content</a></li>
-<li><a id="l8" onclick="jumpTo('l8'); return('true');" href='#link8'>Set Permissionst</a></li>
+<div id="mainNav" data-toggle="collapse">
+<!--  TODO  Make this a jQuery function -->
+<!--<li><a id="link1" onclick="jumpTo('l1'); return('true');" href='#l1'>Site Themes</a></li>-->
+<li><a id="link2" href='#l2'>Primary Links</a></li>
+<li><a id="link3" href='#l3'>Secondary Links</a></li>
+<li><a id="link4" href='#l4'>Categories</a></li>
+<li><a id="link5" href='#l5'>Add Media</a></li>
+<li><a id="link6" href='#l6'>Add Content</a></li>
+<li><a id="link7" target="_blank" href='../index.php'>Front End</a></li>
+<!--<li><a id="link8" href='#l8'>Set Permissions</a></li>-->
 </div>
 </nav></div>
 <!-- END DELETE CONTENT FOR PRIMARY AND SIDE MENU CATEGORIES -->
@@ -57,8 +59,8 @@ php_value default_mimetype "text/css"
 if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and siteid='$siteid'")){
 	if($myrow3=$res3->fetch_object()){
 	do{
-	printf("<form method=post action=%s>
-	<p><a name='links'>Enterdssss Text for Primary Links</a></p>
+	printf("<div id='l2'><form method=post action=%s>
+	<p><a name='links'>Enter Text for Primary Links</a></p>
 	<input type=text name=link1 value='%s'>
 	<input type=text name=link2 value='%s'>
 	<input type=text name=link3 value='%s'>
@@ -68,13 +70,13 @@ if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and sitei
 	<input type=text name=link7 value='%s'>
 	<input type=text name=link8 value='%s'>
 	<input type=submit name=go value='Go'>
-	</form>",htmlspecialchars($PHP_SELF), $myrow3->link1, $myrow3->link2, $myrow3->link3, $myrow3->link4, $myrow3->link5, $myrow3->link6,
+	</form></div>",htmlspecialchars($PHP_SELF), $myrow3->link1, $myrow3->link2, $myrow3->link3, $myrow3->link4, $myrow3->link5, $myrow3->link6,
 	$myrow3->link7, $myrow3->link8);
 	}while($myrow3=$res3->fetch_object());
 	} else {
 
 ?>
-<form method=post action=<?php echo htmlspecialchars($PHP_SELF); ?>>
+<div id='l2'><form method=post action=<?php echo htmlspecialchars($PHP_SELF); ?>>
 	<p><a name='links'>Enter Text for Primary Links</a></p>
 	<input type=text name=link1 value='<?php echo $link1; ?>'>
 	<input type=text name=link2 value='<?php echo $link2; ?>'>
@@ -85,21 +87,19 @@ if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and sitei
 	<input type=text name=link7 value='<?php echo $link7; ?>'>
 	<input type=text name=link8 value='<?php echo $link8; ?>'>
 	<input type=submit name=go value='Go'>
-	</form>
+	</form></div>
 <?php
 	}
 }
 ?>
 <!-- END ENTER HEADINGS FOR PRIMARY LINKS -->
-</td></table>
-<table><td>
 
 <!-- ENTER TITLES FOR SIDE MENU LINKS -->
 <?php
 if($res4 = $mysqli->query("select * from catlinks where delrec != 'on' and siteid='$siteid'")){
 	if($myrow4=$res4->fetch_object()){
 	do{
-	printf("<form method=post action='%s'><p><a name='leftside'>Left Side Menu Items</a></p>
+	printf("<div id='l3'><form method=post action='%s'><p><a name='leftside'>Left Side Menu Items</a></p>
 	<p><input type='text' name=sidenav1 value='%s'></p>
 	<p><input type='text' name=sidenav2 value='%s'></p>
 	<p><input type='text' name=sidenav3 value='%s'></p>
@@ -116,7 +116,7 @@ if($res4 = $mysqli->query("select * from catlinks where delrec != 'on' and sitei
 	<p><input type='text' name=sidenav14 value='%s'></p>
 	<p><input type='text' name=sidenav15 value='%s'></p>
 	<p><input type='submit' name='save' value='save'></p>
-	</form>",htmlspecialchars($PHP_SELF), $myrow4->sidenav1, $myrow4->sidenav2, $myrow4->sidenav3, $myrow4->sidenav4,
+	</form></div>",htmlspecialchars($PHP_SELF), $myrow4->sidenav1, $myrow4->sidenav2, $myrow4->sidenav3, $myrow4->sidenav4,
 	$myrow4->sidenav5, $myrow4->sidenav6, $myrow4->sidenav7, $myrow4->sidenav8, $myrow4->sidenav9,
 	$myrow4->sidenav10, $myrow4->sidenav11, $myrow4->sidenav12, $myrow4->sidenav13, $myrow4->sidenav14,
 	$myrow4->sidenav15);
@@ -124,6 +124,7 @@ if($res4 = $mysqli->query("select * from catlinks where delrec != 'on' and sitei
 	} while($myrow4=$res4->fetch_object());
 	} else {
 	?>
+	<div id="l3">
 	<form method=post action='<?php htmlspecialchars($PHP_SELF);?>'><p><a name='leftside'>Left Side Menu Items</a></p>
 		<p><input type='text' name=sidenav1 value='<?php echo $sidenav1; ?>'></p>
 		<p><input type='text' name=sidenav2 value='<?php echo $sidenav2; ?>'></p>
@@ -142,15 +143,13 @@ if($res4 = $mysqli->query("select * from catlinks where delrec != 'on' and sitei
 		<p><input type='text' name=sidenav15 value='<?php echo $sidenav15; ?>'></p>
 		<p><input type='submit' name='save' value='save'></p>
 	</form>
+	</div>
 	<?php
 	}
 
 }
 ?>
 <!-- END ENTER TITLES FOR SIDE MENU LINKS -->
-</td></table>
-
-<table><td>
 
 <!-- CREATE CATEGORIES FOR PRIMARY AND SIDE MENU LINKS -->
 <?php
@@ -173,7 +172,7 @@ $sidenav14=$myrow14->sidenav14;
 $sidenav15=$myrow14->sidenav15;
 
 endwhile;
-?>
+?><div id="l4">
 <form method="post" action="<?php echo htmlspecialchars($PHP_SELF);  ?>">
 <p><a name='categories'>Create Categories</a></p>
 <input type="hidden" name="siteid" value="<?php echo $siteid;?>">
@@ -202,7 +201,7 @@ endwhile;
 <p>List Order<input type="text" name="listorder" value="<?php echo $cat_group;?>"></p>
 <p><input style='font-family:verdana,sans-serif;font-size:7.5pt' type="submit" name="create_category" value="Enter"></p>
 
-</form>
+</form></div>
 <?php
 endif;
 ?>
@@ -243,17 +242,17 @@ echo "<p>Categories</p>";
 
 <p><a name='images'>Upload file script</a></p>
 
-<form method='POST' enctype='multipart/form-data' name='frmmain' action='<?php htmlspecialchars($PHP_SELF); ?>'>
+<div id='l5'><form method='POST' enctype='multipart/form-data' name='frmmain' action='<?php htmlspecialchars($PHP_SELF); ?>'>
 Browse for Image (jpg): <input type="file" name="image_file" size="35">
 <br>
 <input type="submit" value="  Upload File  " name="action">
-</form>
+</form></div>
 <!-- END UPLOAD FILE TYPES .gif, .jpeg, and .png -->
 </td></table>
 <table><td>
 
 <!-- CREATE CONTENT -->
-<hr>
+<hr><div id="l6">
 <form method="post" action="<?php echo htmlspecialchars($PHP_SELF);  ?>">
 <p><a name='content'>Create Content</a></p>
 <?php
@@ -324,12 +323,12 @@ echo "<p>No Images found.  Add some.</p>";
 <p>Contact Phone2<input type="text" name="contactphone2" value="<?php echo $contactphone2;?>"></p>
 <p>Link to URL<input type="text" name="linkto" value="<?php echo $linkto;?>"></p>
 <p><input style='font-family:verdana,sans-serif;font-size:7.5pt' type="submit" name="create_classified" value="Enter"></p>
-</form>
+</form></div>
 <!-- END CREATE CONTENT -->
 
 </td></table>
 <table><td>
-
+<div id='l8'>
 <!-- LIST - DELETE CONTENT-->
 <?php
 if($res7=$mysqli->query("SELECT * FROM `classifieds` WHERE siteid='$siteid' and delrec != 'on' ")):
@@ -354,6 +353,8 @@ endif;
 ?>
 <!-- END LIST - DELETE CONTENT-->
 </td></table></div>
+
+</div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
