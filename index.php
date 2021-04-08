@@ -1,17 +1,22 @@
-<! DOCTYPE>
+<!DOCTYPE html>
+   
+
 <html style="scroll-behavior:smooth !important" lang="en">
 <head>
+    <title>Talis.tv</title>
+  
 <meta property="og:image" content="https://sitesappsimages.com/assets/images/thumb.png" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="icon" type="image/png" href="https://www.sitesappsimages.com/talis/assets/icons/logo_icon.png">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<link rel="icon" type="image/png" href="assets/icons/logo_icon.png">
 
+ <link rel="stylesheet" href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity=
+"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous" /><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 <style>
 
-//@media screen and (min-width: 30em) and (orientation: landscape) {section { padding-top: 400px; }}
-@media (min-width: 360px) and (orientation: portrait) {section { padding-top: 5em; }}
+@media (min-width: 360px) and (orientation: portrait) {section { padding-top: 8em; }}
 @media (min-width: 375px) and (orientation: portrait) {section { padding-top: 8em; }}
 @media (min-width: 568px) and (orientation: landscape) {section { padding-top: 5em; }}
 @media (min-width: 667px) and (orientation: landscape) {section { padding-top: 5em; }}
@@ -20,24 +25,14 @@
 @media (min-width: 1024px) and (orientation: portrait) {section { padding-top: 5em; }}
 @media (min-width: 1024px) and (orientation: landscape) {section { padding-top: 6em; }}
 @media (min-width: 1366px) and (orientation: landscape) {section { padding-top: 6em; }}
-//@media screen and (min-width: 30em) and (orientation: portrait) { section { padding-top: 5em; } }
-//@media (min-width: 780px) { section { padding-top: 215px; } }
-//@media (min-width: 980px) { section { padding-top: 120px; } }
-//@media (min-width: 1350px) { section { padding-top: 180px; } }
-body {
-	font-family: Montserrat, sans-serif;
-	background-image:url('assets/images/photo.png');
-	background-color:#a371d9;
-	background-image:align-right;
-	background-image:cover;
-	-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 
-	height:100%;
-	margin:auto;
+html, body {
+	font-family: Montserrat, sans-serif;
+    font-size:11pt;
+
+
 }
+
 
 #main {
 background-color:rgb(255,255,255);opacity:0.85;
@@ -45,10 +40,38 @@ padding-top:8px;
 }
 
 
-
-a,ul,li,dt,dd,label,.placeholder,h1,h2,h3,h4,section,article,footer,header,p,input,div,.btn {
-	color:#333;
+section {
+	margin-top:2px;
+	color:#000;
 	font-family: Montserrat, sans-serif;
+	font-weight:200;
+	}
+
+h3 {
+	color:#000;
+	font-family: Montserrat, sans-serif;
+	//font-size:12pt;
+	}
+
+h4 {
+	//padding-top:90px;
+	color:#000;
+	font-family: Montserrat, sans-serif;
+	//font-size:14pt;
+	}
+
+li, p, input, label, button {
+	//padding-top:90px;
+	color:#000;
+	font-family: Montserrat, sans-serif;
+	font-size:12pt;
+	}
+
+a {
+	//padding-top:90px;
+	color:#000;
+	font-family: Montserrat, sans-serif;
+	font-size:12pt;
 	}
 
  .btn {
@@ -96,7 +119,7 @@ a,ul,li,dt,dd,label,.placeholder,h1,h2,h3,h4,section,article,footer,header,p,inp
 }
 
 .content {
-  padding: 16px;
+  padding-top: 120px;
 }
 
 .sticky {
@@ -148,7 +171,7 @@ img {
 .twitter {
   //background: #55ACEE;
   //color: white;
-}
+}f1f1f1
 
 .google {
   //background: #dd4b39;
@@ -165,218 +188,118 @@ img {
   //color: white;
 }
 
-li.nav-item {
-	text-decoration:none !important	;
-}
 
-.home {
-	padding-top:120px;
-
-}
-
-</style>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
-
+      
+    </style>
 </head>
+  
 <body>
+    <!-- h-100 takes the full height of the body-->
+    <div class="container-fluid h-100">
+    <div class="row">
+    	
+         
+       <?php
+    include('sidemenu.php');
+   if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and siteid='$siteid'")){
+$width='100%';
+$row3=$res3->fetch_object();
+$linkColor=$row3->linkColor;
+$link1=$row3->link1;
+$link2=$row3->link2;
+$link3=$row3->link3;
+$link4=$row3->link4;
+$link5=$row3->link5;
+$link6=$row3->link6;
+$link7=$row3->link7;
+$link8=$row3->link8;
+ ?>
+          
+                <!-- Top navbar -->
+               <nav class="header sticky navbar navbar-expand-lg 
+                                navbar-light bg-light">
+                    <a class="navbar-brand" href="#"><img src="assets/images/logo_white.png" width="40" /></a>
+                    <!-- Hamburger button that toggles the navbar-->
+                    <button class="navbar-toggler" 
+                        type="button" data-toggle="collapse"
+                        data-target="#navbarNavAltMarkup" 
+                        aria-controls="navbarNavAltMarkup" 
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- navbar links -->
+                    <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse.show" 
+                        id="navbarNavAltMarkup">
+                       <div class="navbar-nav">
+                           		    <li class="nav-item"><a id="link1" onclick="jumpTo('l1'); alert('Link 1 Content'); return true;" class="nav-link" href="#l1"><?php echo $link1; ?></a></li>
+                          		    <li class="nav-item"><a id="link2" onclick="jumpTo('l2'); alert('Link 1 Content'); return true;" class="nav-link" href="#l2"><?php echo $link2; ?></a></li>
+                          		    <li class="nav-item"><a id="link3" onclick="jumpTo('l3'); alert('Link 1 Content'); return true;" class="nav-link" href="#l3"><?php echo $link3; ?></a></li>
+                          		    <li class="nav-item"><a id="link4" onclick="jumpTo('l4'); alert('Link 1 Content'); return true;" class="nav-link" href="#l4"><?php echo $link4; ?></a></li>
+                          		    <li class="nav-item"><a id="link5" onclick="jumpTo('l5'); alert('Link 1 Content'); return true;" class="nav-link" href="#l5"><?php echo $link5; ?></a></li>
+                          		    <li class="nav-item"><a id="link6" onclick="jumpTo('l6'); alert('Link 1 Content'); return true;" class="nav-link" href="#l6"><?php echo $link6; ?></a></li>
+                           		    <li class="nav-item"><a id="link7" onclick="jumpTo('l7'); alert('Link 1 Content'); return true;" class="nav-link" href="#l7"><?php echo $link7; ?></a></li>
+                                    <li class="nav-item"><a id="link8" onclick="jumpTo('l8'); alert('Link 1 Content'); return true;" class="nav-link" href="#l8"><?php echo $link8; ?></a></li>
+                                        </div>
+              
+                </nav>
+  <?php } ?>
+                <!-- Contains the main content of the webpage-->
+                <div class='col-10' id='grab_index'>
+                   <?php
+                   include('grab_index.php');
+                   ?>
+                </div>
+            </div><!-row-->
+        </div><!--container-->
+   
 
 
-
-<?php
-include('nav.php');
-?>
-
-<table style="height:100%;">
-<tr style="height:100%;"><td style="height:100%;vertical-align:text-top;">
-		<?php
-		//grabbing catlinks
-		$res3 = $mysqli->query("select * from catlinks where delrec != 'on' and siteid='$siteid'");
-		if($myrow3=$res3->fetch_object()){
-		echo '<dl style="padding-left:2em;">';
-		$sidenav1=$myrow3->sidenav1;
-		$sidenav2=$myrow3->sidenav2;
-		$sidenav3=$myrow3->sidenav3;
-		$sidenav4=$myrow3->sidenav4;
-		$sidenav5=$myrow3->sidenav5;
-		$sidenav6=$myrow3->sidenav6;
-		$sidenav7=$myrow3->sidenav7;
-		$sidenav8=$myrow3->sidenav8;
-		$sidenav9=$myrow3->sidenav9;
-		$sidenav10=$myrow3->sidenav10;
-		$sidenav11=$myrow3->sidenav11;
-		$sidenav12=$myrow3->sidenav12;
-		$sidenav13=$myrow3->sidenav13;
-		$sidenav14=$myrow3->sidenav14;
-		$sidenav15=$myrow3->sidenav15;
-
-		for($count = 1; $count < 16; $count++) {
-		$thissidenav = 'sidenav' . $count;
-
-
-					$res2=$mysqli->query("select * from categories where navid='$thissidenav' and delrec != 'on' and siteid='$siteid'");
-					if($myrow2=$res2->fetch_object()){
-								printf("<dt><a id='sidemenu' href='#'>%s</a></dt>", $$thissidenav);
-								echo "<dd><ul>";
-										do{
-										printf("<li><a target='_blank' id='sidemenu' href='%s'>%s</a></li>", $myrow2->cat_url, $myrow2->catname);
-										//printf("<form method='post' action='%s'><li><a target='_blank' id='sidemenu' href='%s'>%s</a></li><input type='hidden' name='issubmitted' value='1'></form>", $myrow2->cat_url, $myrow2->cat_url, $myrow2->catname);
-										}while($myrow2=$res2->fetch_object());
-								echo "</ul></dd>";
-
-					}
-
-		}
-		echo "</dl>";
-		//grabbing weblinks
-		} else { echo $siteid; }
-		?>
-		
- 
-</td><td style="height:100%;vertical-align:text-top;">
-		<?php
-		include('grab_index.php');
-		?>
-</td></tr></table>
-<div style="position:fixed;bottom:2px;width:100%;text-align:center;"><font color=silver><small>All Rights Reserved&nbsp;&nbsp;&copy;2020 The App Factory</small></font></div>
-
-<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <!-- Import jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity=
+"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous">
+    </script>
+      
+    <!-- Import popper.js cdn -->
+    <script src=
+"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity=
+"sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous">
+    </script>
+      
+    <!-- Import javascript cdn -->
+    <script src=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity=
+"sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous">
+    </script>
+      
 <script>
-$( "#imgBrand" ).click(function() {
+$(window).ready(function() { 
+jumpTo(strLocTag){
+    window.location.hash = strLocTag;
+}
+}
+);
+
+</script>
+<script>
+$(window).ready(function() {
+ //alert('Subscribe');
   $( "#home" ).show();
-  $( "#l1" ).hide();
-  $( "#l2" ).hide();
-  $( "#l3" ).hide();
-  $( "#l4" ).hide();
-  $( "#l5" ).hide();
-  $( "#l6" ).hide();
-  $( "#l7" ).hide();
-  $( "#l8" ).hide();
-
-});
-
-$( "#link1" ).click(function() {
-  $( "#home" ).hide();
   $( "#l1" ).show();
-  $( "#l2" ).hide();
-  $( "#l3" ).hide();
-  $( "#l4" ).hide();
-  $( "#l5" ).hide();
-  $( "#l6" ).hide();
-  $( "#l7" ).hide();
-  $( "#l8" ).hide();
-
-});
-
-$( "#link2" ).click(function() {
-  $( "#home" ).hide();
-  $( "#l1" ).hide();
   $( "#l2" ).show();
-  $( "#l3" ).hide();
-  $( "#l4" ).hide();
-  $( "#l5" ).hide();
-  $( "#l6" ).hide();
-  $( "#l7" ).hide();
-  $( "#l8" ).hide();
-
-});
-
-$( "#link3" ).click(function() {
-  $( "#home" ).hide();
-  $( "#l1" ).hide();
-  $( "#l2" ).hide();
   $( "#l3" ).show();
-  $( "#l4" ).hide();
-  $( "#l5" ).hide();
-  $( "#l6" ).hide();
-  $( "#l7" ).hide();
-  $( "#l8" ).hide();
-
-});
-$( "#link4" ).click(function() {
-  $( "#home" ).hide();
-  $( "#l1" ).hide();
-  $( "#l2" ).hide();
-  $( "#l3" ).hide();
   $( "#l4" ).show();
-  $( "#l5" ).hide();
-  $( "#l6" ).hide();
-  $( "#l7" ).hide();
-  $( "#l8" ).hide();
-
-});
-$( "#link5" ).click(function() {
-  $( "#home" ).hide();
-  $( "#l1" ).hide();
-  $( "#l2" ).hide();
-  $( "#l3" ).hide();
-  $( "#l4" ).hide();
   $( "#l5" ).show();
-  $( "#l6" ).hide();
-  $( "#l7" ).hide();
-  $( "#l8" ).hide();
-
-});
-$( "#link6" ).click(function() {
-  $( "#home" ).hide();
-  $( "#l1" ).hide();
-  $( "#l2" ).hide();
-  $( "#l3" ).hide();
-  $( "#l4" ).hide();
-  $( "#l5" ).hide();
   $( "#l6" ).show();
-  $( "#l7" ).hide();
-  $( "#l8" ).hide();
-
-});
-$( "#link7" ).click(function() {
-  $( "#home" ).hide();
-  $( "#l1" ).hide();
-  $( "#l2" ).hide();
-  $( "#l3" ).hide();
-  $( "#l4" ).hide();
-  $( "#l5" ).hide();
-  $( "#l6" ).hide();
   $( "#l7" ).show();
-  $( "#l8" ).hide();
-
-});
-$( "#link8" ).click(function() {
-  $( "#home" ).hide();
-  $( "#l1" ).hide();
-  $( "#l2" ).hide();
-  $( "#l3" ).hide();
-  $( "#l4" ).hide();
-  $( "#l5" ).hide();
-  $( "#l6" ).hide();
-  $( "#l7" ).hide();
-  $( "#l8" ).show();
-
-});
-</script>
-<script>
-$(document).ready(function() {
-$("iframe").addClass('embed-responsive-item');
-  $( "#home" ).show();
-  $( "#l1" ).hide();
-  $( "#l2" ).hide();
-  $( "#l3" ).hide();
-  $( "#l4" ).hide();
-  $( "#l5" ).hide();
-  $( "#l6" ).hide();
-  $( "#l7" ).hide();
   $( "#l8" ).show();
 });
 </script>
-
 </body>
-</div>
 </html>
