@@ -218,7 +218,7 @@ $link8=$row3->link8;
                 <!-- Top navbar -->
                <nav class="header sticky navbar navbar-expand-lg 
                                 navbar-light bg-light">
-                    <a class="navbar-brand" href="#"><img src="assets/images/logo_white.png" width="40" /></a>
+                    <a class="navbar-brand" href="index.php"><img src="assets/images/logo_white.png" width="40" /></a>
                     <!-- Hamburger button that toggles the navbar-->
                     <button class="navbar-toggler" 
                         type="button" data-toggle="collapse"
