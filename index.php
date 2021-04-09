@@ -200,8 +200,16 @@ img {
     	
          
        <?php
- 		include('comm_connect.php');
-		include('siteid.php');
+ 		$mysqli = new mysqli('localhost', 'root', '', 'testimports');
+		if ($mysqli->connect_error) {
+		die('Connect Error (' . $mysqli->connect_errno . ') '
+            . $mysqli->connect_error);
+		}
+
+	
+		$siteid='talis';
+		$sitetitle='My Talisman';
+
 		//grabbing catlinks
 		$res3 = $mysqli->query("select * from catlinks where delrec != 'on' and siteid='$siteid'");
 		if($myrow3=$res3->fetch_object()){
