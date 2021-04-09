@@ -232,14 +232,14 @@ $link8=$row3->link8;
                     <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse.show" 
                         id="navbarNavAltMarkup">
                        <div class="navbar-nav">
-                           		    <li class="nav-item"><a id="link1" onclick="jumpTo('l1'); alert('Link 1 Content'); return true;" class="nav-link" href="#l1"><?php echo $link1; ?></a></li>
-                          		    <li class="nav-item"><a id="link2" onclick="jumpTo('l2'); alert('Link 1 Content'); return true;" class="nav-link" href="#l2"><?php echo $link2; ?></a></li>
-                          		    <li class="nav-item"><a id="link3" onclick="jumpTo('l3'); alert('Link 1 Content'); return true;" class="nav-link" href="#l3"><?php echo $link3; ?></a></li>
-                          		    <li class="nav-item"><a id="link4" onclick="jumpTo('l4'); alert('Link 1 Content'); return true;" class="nav-link" href="#l4"><?php echo $link4; ?></a></li>
-                          		    <li class="nav-item"><a id="link5" onclick="jumpTo('l5'); alert('Link 1 Content'); return true;" class="nav-link" href="#l5"><?php echo $link5; ?></a></li>
-                          		    <li class="nav-item"><a id="link6" onclick="jumpTo('l6'); alert('Link 1 Content'); return true;" class="nav-link" href="#l6"><?php echo $link6; ?></a></li>
-                           		    <li class="nav-item"><a id="link7" onclick="jumpTo('l7'); alert('Link 1 Content'); return true;" class="nav-link" href="#l7"><?php echo $link7; ?></a></li>
-                                    <li class="nav-item"><a id="link8" onclick="jumpTo('l8'); alert('Link 1 Content'); return true;" class="nav-link" href="#l8"><?php echo $link8; ?></a></li>
+                           		    <li class="nav-item"><a id="link1" class="nav-link" href="#l1"><?php echo $link1; ?></a></li>
+                          		    <li class="nav-item"><a id="link2" class="nav-link" href="#l2"><?php echo $link2; ?></a></li>
+                          		    <li class="nav-item"><a id="link3" class="nav-link" href="#l3"><?php echo $link3; ?></a></li>
+                          		    <li class="nav-item"><a id="link4" class="nav-link" href="#l4"><?php echo $link4; ?></a></li>
+                          		    <li class="nav-item"><a id="link5" class="nav-link" href="#l5"><?php echo $link5; ?></a></li>
+                          		    <li class="nav-item"><a id="link6" class="nav-link" href="#l6"><?php echo $link6; ?></a></li>
+                           		    <li class="nav-item"><a id="link7" class="nav-link" href="#l7"><?php echo $link7; ?></a></li>
+                                    <li class="nav-item"><a id="link8" class="nav-link" href="#l8"><?php echo $link8; ?></a></li>
                                         </div>
               
                 </nav>
@@ -286,6 +286,133 @@ jumpTo(strLocTag){
 }
 );
 
+</script>
+<script>
+$( "#imgBrand" ).click(function() {
+  $( "#home" ).show();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+
+$( "#link1" ).click(function() {
+  $( "#home" ).hide();
+  $( "#l1" ).show();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+
+$( "#link2" ).click(function() {
+  $( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).show();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+
+$( "#link3" ).click(function() {
+  $( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).show();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+$( "#link4" ).click(function() {
+  $( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).show();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+$( "#link5" ).click(function() {
+  $( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).show();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+$( "#link6" ).click(function() {
+  $( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).show();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+$( "#link7" ).click(function() {
+  $( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).show();
+  $( "#l8" ).hide();
+
+});
+$( "#link8" ).click(function() {
+  $( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).show();
+
+});
+</script>
+<!--<script>
+$(document).ready(function() {
+$("iframe").addClass('embed-responsive-item');
+  $( "#home" ).show();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).show();
+});
 </script>
 <script>
 $(window).ready(function() {
