@@ -200,15 +200,8 @@ img {
     	
          
        <?php
- 		$mysqli = new mysqli('localhost', 'root', '', 'testimports');
-		if ($mysqli->connect_error) {
-		die('Connect Error (' . $mysqli->connect_errno . ') '
-            . $mysqli->connect_error);
-		}
-
-	
-		$siteid='talis';
-		$sitetitle='My Talisman';
+ 		require('comm_connect.php');
+		require('siteid.php');
 
 		//grabbing catlinks
 		$res3 = $mysqli->query("select * from catlinks where delrec != 'on' and siteid='$siteid'");
@@ -314,17 +307,28 @@ if($res11 = $mysqli->query($sql)){
 
 		do{
 		echo "<div class='row'><div class='col'>";
+			if(isset($row11->thislisting)) { $thislisting= $row11->thislisting; }
+			if(isset($row11->memberid)) { $memberid= $row11->memberid; }
+			if(isset($row11->details)) { $details= $row11->details; }
 			if(isset($row11->authname)) { $authname= $row11->authname; }
-  			if(isset($row11->embed_code)) {$embed_code = $row11->embed_code; }
+  		    if(isset($row11->embed_code)) {$embed_code = $row11->embed_code; }
   			if(isset($row11->title)) {$title = $row11->title; }
-  			if(isset($row11->thislisting)) {$thislisting = $row11->thislisting; }
+  			if(isset($row11->target_url)) {$target_url = $row11->target_url; }
+  			if(isset($row11->target_name)) {$target_name = $row11->target_name; }
   			if(!isset($row11->image_name)) {$image_name = $row11->image_name; } else { $image_name="https://www.sitesappsimages.com/talis/assets/images/logo_white.png";}
-  			printf('<h4>%s</h4>',$title);
+  			if(!isset($row11->contactname)) {$contactname = $row11->contactname; }
+  			if(!isset($row11->contactnotes)) {$contactnotes = $row11->contactnotes; } 
+  		    if(!isset($row11->contactemail)) {$contactemail = $row11->contactemail; } 
+  			if(!isset($row11->contactphone1)) {$contactphone1 = $row11->contactphone1; }
+  			if(!isset($row11->contactphone2)) {$contactphone2 = $row11->contactphone2; } 
+  			if(isset($row11->linkto)) {$linkto = $row11->linkto; }
+            printf('<h4>%s</h4>',$title);
   			printf('<p class="lead">%s</p>',$i);
 			printf('<div class="float-left"><img class="img-fluid-height" src="%s" /></div>',$image_name);
-  			//printf('<p class="para">%s</p><object>%s</object>',$thislisting, $embed_code);
-  			printf('<p class="para">%s</p>',$thislisting);
+  			printf('<p class="para">%s</p><p>%s Target Name for embedded video file URLS</p><p>Read More.. %s</p>',$thislisting, $target_name, $target_url);
+			printf('<div class="fluid"><p>Posted By: %s</p><p>%s</p><p>%s</p><p>%s</p><p>%s</p><p>%s</p></div>',$contactname,$contactemail,$contactphone1,$contactphone2,$contactnotes, $details);
 		echo "</div></div>";
+
 		}while($row11=$res11->fetch_object());
   	echo "</div>";
 	} 
@@ -485,7 +489,7 @@ $( "#link8" ).click(function() {
 
 });
 </script>
-<!--<script>
+<script>
 $(document).ready(function() {
 $("iframe").addClass('embed-responsive-item');
   $( "#home" ).show();
