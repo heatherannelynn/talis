@@ -97,7 +97,7 @@ if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and sitei
 if($res4 = $mysqli->query("select * from catlinks where delrec != 'on' and siteid='$siteid'")){
 	if($myrow4=$res4->fetch_object()){
 	do{
-	printf("<div id='l3'><p>Catlinks/Secondary Links</p><form method=post action='%s'><p><a name='leftside'>Left Side Menu Items</a></p>
+	printf("<div id='l3'><p>Catlinks/Secondary Links</p><form method=post action='%s'>
 	<p><input type='text' name=sidenav1 value='%s'></p>
 	<p><input type='text' name=sidenav2 value='%s'></p>
 	<p><input type='text' name=sidenav3 value='%s'></p>
@@ -124,7 +124,7 @@ if($res4 = $mysqli->query("select * from catlinks where delrec != 'on' and sitei
 	?>
 	<div id="l3"><p>Catlinks/Secondary Links</p>
 
-	<form method=post action='<?php htmlspecialchars($PHP_SELF);?>'><p><a name='leftside'>Left Side Menu Items</a></p>
+	<form method=post action='<?php htmlspecialchars($PHP_SELF);?>'>
 		<p><input type='text' name=sidenav1 value='<?php echo $sidenav1; ?>'></p>
 		<p><input type='text' name=sidenav2 value='<?php echo $sidenav2; ?>'></p>
 		<p><input type='text' name=sidenav3 value='<?php echo $sidenav3; ?>'></p>
