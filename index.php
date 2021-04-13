@@ -188,7 +188,21 @@ img {
   //color: white;
 }
 
+.aButton  {
 
+    width:100%;
+    height:100%;
+    background:#f1f1f1;
+    border:1px #dfec solid;
+    padding-left:12px;
+    padding-right:12px;
+    padding-top:4px;
+    padding-bottom:3px;
+    color:#000;
+   
+
+  
+}
       
     </style>
 </head>
@@ -268,26 +282,26 @@ $link8=$row3->link8;
                                 navbar-light bg-light">
                     <a class="navbar-brand" href="index.php"><img src="assets/images/logo_white.png" width="40" /></a>
                     <!-- Hamburger button that toggles the navbar-->
-                    <button class="navbar-toggler" 
+                   <div style="padding:0;padding-right:8px;"> <button  class="navbar-toggler" 
                         type="button" data-toggle="collapse"
                         data-target="#navbarNavAltMarkup" 
                         aria-controls="navbarNavAltMarkup" 
                         aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button>
+                    </button></div>
                     <!-- navbar links -->
                     <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse.show" 
                         id="navbarNavAltMarkup">
                        <div class="navbar-nav">
-                           		    <li class="nav-item"><a id="link1" class="nav-link" href="#l1"><?php echo $link1; ?></a></li>
-                          		    <li class="nav-item"><a id="link2" class="nav-link" href="#l2"><?php echo $link2; ?></a></li>
-                          		    <li class="nav-item"><a id="link3" class="nav-link" href="#l3"><?php echo $link3; ?></a></li>
-                          		    <li class="nav-item"><a id="link4" class="nav-link" href="#l4"><?php echo $link4; ?></a></li>
-                          		    <li class="nav-item"><a id="link5" class="nav-link" href="#l5"><?php echo $link5; ?></a></li>
-                          		    <li class="nav-item"><a id="link6" class="nav-link" href="#l6"><?php echo $link6; ?></a></li>
-                           		    <li class="nav-item"><a id="link7" class="nav-link" href="#l7"><?php echo $link7; ?></a></li>
-                                    <li class="nav-item"><a id="link8" class="nav-link" href="#l8"><?php echo $link8; ?></a></li>
+                           		    <li class="nav-item"><a id="link1" class="nav-link" href="#l1"><div class="aButton" ><?php echo $link1; ?></div></a></li>
+                          		    <li class="nav-item"><a id="link2" class="nav-link" href="#l2"><div class="aButton" ><?php echo $link2; ?></div></a></li>
+                          		    <li class="nav-item"><a id="link3" class="nav-link" href="#l3"><div class="aButton" ><?php echo $link3; ?></div></a></li>
+                          		    <li class="nav-item"><a id="link4" class="nav-link" href="#l4"><div class="aButton" ><?php echo $link4; ?></div></a></li>
+                          		    <li class="nav-item"><a id="link5" class="nav-link" href="#l5"><div class="aButton" ><?php echo $link5; ?></div></a></li>
+                          		    <li class="nav-item"><a id="link6" class="nav-link" href="#l6"><div class="aButton" ><?php echo $link6; ?></div></a></li>
+                           		    <li class="nav-item"><a id="link7" class="nav-link" href="#l7"><div class="aButton" ><?php echo $link7; ?></div></a></li>
+                                    <li class="nav-item"><a id="link8" class="nav-link" href="#l8"><div class="aButton" ><?php echo $link8; ?></div></a></li>
                                         </div>
               
                 </nav>
