@@ -55,11 +55,10 @@ php_value default_mimetype "text/css"
 
 <!-- ENTER HEADINGS FOR PRIMARY LINKS -->
 <?php
-
 if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and siteid='$siteid'")){
 	if($myrow3=$res3->fetch_object()){
 	do{
-	printf("<div id='l2'><form method=post action=%s>
+	printf("<div id='l2'><h4>Weblinks/Primary Links</h4><form method=post action=%s>
 	<p><a name='links'>Enter Text for Primary Links</a></p>
 	<input type=text name=link1 value='%s'>
 	<input type=text name=link2 value='%s'>
@@ -76,7 +75,7 @@ if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and sitei
 	} else {
 
 ?>
-<div id='l2'><form method=post action=<?php echo htmlspecialchars($PHP_SELF); ?>>
+<div id='l2'><h4>Weblinks/Primary Links</h4><form method=post action=<?php echo htmlspecialchars($PHP_SELF); ?>>
 	<p><a name='links'>Enter Text for Primary Links</a></p>
 	<input type=text name=link1 value='<?php echo $link1; ?>'>
 	<input type=text name=link2 value='<?php echo $link2; ?>'>
@@ -99,7 +98,7 @@ if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and sitei
 if($res4 = $mysqli->query("select * from catlinks where delrec != 'on' and siteid='$siteid'")){
 	if($myrow4=$res4->fetch_object()){
 	do{
-	printf("<div id='l3'><form method=post action='%s'><p><a name='leftside'>Left Side Menu Items</a></p>
+	printf("<div id='l3'><h4>Catlinks/Secondary Links</h4><form method=post action='%s'><p><a name='leftside'>Left Side Menu Items</a></p>
 	<p><input type='text' name=sidenav1 value='%s'></p>
 	<p><input type='text' name=sidenav2 value='%s'></p>
 	<p><input type='text' name=sidenav3 value='%s'></p>
@@ -124,7 +123,8 @@ if($res4 = $mysqli->query("select * from catlinks where delrec != 'on' and sitei
 	} while($myrow4=$res4->fetch_object());
 	} else {
 	?>
-	<div id="l3">
+	<div id="l3"><h4>Catlinks/Secondary Links</h4>
+
 	<form method=post action='<?php htmlspecialchars($PHP_SELF);?>'><p><a name='leftside'>Left Side Menu Items</a></p>
 		<p><input type='text' name=sidenav1 value='<?php echo $sidenav1; ?>'></p>
 		<p><input type='text' name=sidenav2 value='<?php echo $sidenav2; ?>'></p>
@@ -153,8 +153,8 @@ if($res4 = $mysqli->query("select * from catlinks where delrec != 'on' and sitei
 
 <!-- CREATE CATEGORIES FOR PRIMARY AND SIDE MENU LINKS -->
 <?php
-if($res14 = $mysqli->query("select * from catlinks where delrec != 'on' and siteid='$siteid'")):
-	while($myrow14=$res14->fetch_object()):
+if($res14 = $mysqli->query("select * from catlinks where delrec != 'on' and siteid='$siteid'")){
+	while($myrow14=$res14->fetch_object()){
 $sidenav1=$myrow14->sidenav1;
 $sidenav2=$myrow14->sidenav2;
 $sidenav3=$myrow14->sidenav3;
@@ -171,13 +171,157 @@ $sidenav13=$myrow14->sidenav13;
 $sidenav14=$myrow14->sidenav14;
 $sidenav15=$myrow14->sidenav15;
 
-endwhile;
-?><div id="l4">
+}
+?>
+<div id="l4"><h4>Secondary Links/Catlnks</h4>
 <form method="post" action="<?php echo htmlspecialchars($PHP_SELF);  ?>">
-<p><a name='categories'>Create Categories</a></p>
+
+
+<p><a name='categories'>Create a category/if content exists, all posts associated with this category will fall underneath this top level , or this can be used as a portal., if no target url exists and there is no content for a particular category, the category will not appear.</a></p>
+
+<p>Category Name<input type="text" name="catname" value="<?php echo $catname;?>"></p>
+<p><textarea name="catdesc" rows=5 cols=15></textarea></p>
+<p>Group<input type="text" name="cat_group" value="<?php echo $cat_group;?>"></p>
+<p>Category URL<input type="text" name="cat_url" value="<?php echo $cat_url;?>"></p>
+<p>List Order<input type="text" name="listorder" value="<?php echo $cat_group;?>"></p>
+<p><input style='font-family:verdana,sans-serif;font-size:7.5pt' type="submit" name="create_category" value="Enter"></p>
+
 <input type="hidden" name="siteid" value="<?php echo $siteid;?>">
-<p>Navigation ID
-<select name="navid">
+<h3>TODO make each primary link associate to a different page depending on navigation links as was the original design </h3>
+<br/><h4>For Example, by clicking on the sidenav/category will brink up new primary links with content specific to the selected category.This will give 8 x 15 content values visible on the app</h4><p>Navigation ID
+
+<?php
+
+for($count = 1; $count < 16; $count++) {
+	$thissidenav = 'sidenav' . $count;
+	$chknav = 'chknav'.$count;
+	if($$thissidenav != '') { 		
+	printf('<div class="form-group"><input class="form-control" type="checkbox" name="%s" value="checked" />%s</div>',$chknav, $$thissidenav);
+	}
+	//echo $$thissidenav;
+	//echo "</div>";
+
+	}
+
+
+/*	
+
+
+ 
+if($sidenav1 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav1" <?php if(isset($chknav1)){ echo "checked";}?> />
+<?php echo $sidenav1;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav2 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav2" <?php if(isset($chknav2)){ echo "checked";}?> />
+<?php echo $sidenav2;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav3 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav3" <?php if(isset($chknav3)){ echo "checked";}?> />
+<?php echo $sidenav3;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav4 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav4" <?php if(isset($chknav4)){ echo "checked";}?> />
+<?php echo $sidenav4;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav5 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav5" <?php if(isset($chknav5)){ echo "checked";}?> />
+<?php echo $sidenav5;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav6 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav6" <?php if(isset($chknav6)){ echo "checked";}?> />
+<?php echo $sidenav6;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav7 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav7" <?php if(isset($chknav7)){ echo "checked";}?> />
+<?php echo $sidenav7;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav8 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav8" <?php if(isset($chknav8)){ echo "checked";}?> />
+<?php echo $sidenav8;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav9 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav9" <?php if(isset($chknav9)){ echo "checked";}?> />
+<?php echo $sidenav9;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav10 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav10" <?php if(isset($chknav10)){ echo "checked";}?> />
+<?php echo $sidenav10;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav11 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav11" <?php if(isset($chknav11)){ echo "checked";}?> />
+<?php echo $sidenav11;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav12 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav12" <?php if(isset($chknav12)){ echo "checked";}?> />
+<?php echo $sidenav12;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav13 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav13" <?php if(isset($chknav13)){ echo "checked";}?> />
+<?php echo $sidenav13;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav14 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav14" <?php if(isset($chknav14)){ echo "checked";}?> />
+<?php echo $sidenav14;?></div>
+<?php
+}
+?>
+<?php 
+if($sidenav15 != '') { ?>
+<div class="form-group"><input class="form-control" type="checkbox" name="chknav15" <?php if(isset($chknav15)){ echo "checked";}?> />
+<?php echo $sidenav15;?></div>
+<?php
+}
+
+*/
+?>
+
+
+
+
+
+
+<!--<select name="navid">
+
 <option value="sidenav1"><?php echo $sidenav1;?></option>
 <option value="sidenav2"><?php echo $sidenav2;?></option>
 <option value="sidenav3"><?php echo $sidenav3;?></option>
@@ -193,17 +337,11 @@ endwhile;
 <option value="sidenav13"><?php echo $sidenav13;?></option>
 <option value="sidenav14"><?php echo $sidenav14;?></option>
 <option value="sidenav15"><?php echo $sidenav15;?></option>
-</select></p>
-<p>Category Name<input type="text" name="catname" value="<?php echo $catname;?>"></p>
-<p><textarea name="catdesc" rows=5 cols=15></textarea></p>
-<p>Group<input type="text" name="cat_group" value="<?php echo $cat_group;?>"></p>
-<p>Category URL<input type="text" name="cat_url" value="<?php echo $cat_url;?>"></p>
-<p>List Order<input type="text" name="listorder" value="<?php echo $cat_group;?>"></p>
-<p><input style='font-family:verdana,sans-serif;font-size:7.5pt' type="submit" name="create_category" value="Enter"></p>
+</select>--></p>
 
 </form></div>
 <?php
-endif;
+}
 ?>
 
 <!-- END CREATE CATEGORIES FOR PRIMARY AND SIDE MENU LINKS -->
@@ -218,7 +356,7 @@ endif;
 <?php
 
 if($result = $mysqli->query("select * from categories where siteid='$siteid' and delrec != 'on'")){
-
+echo "<h4>These are your current categories.  To delete one, click on the X</h4>";
 echo "<p>Categories</p>";
 	if($myrow=$result->fetch_object()){
 	do{
@@ -237,11 +375,11 @@ echo "<p>Categories</p>";
 
 </td></table>
 <table><td>
-
+<h4>Upload images will copy to the server, you can also copy and paste images in the Post Content section</h4>
+<p class="lead">Uploading images here will allow you to reuse the images, for example, a seasonal promotion. After uploading an image here, you can select it in the post content section.</p>
 <!-- UPLOAD FILE TYPES .gif, .jpeg, and .png -->
 
 <p><a name='images'>Upload file script</a></p>
-
 <div id='l5'><form method='POST' enctype='multipart/form-data' name='frmmain' action='<?php htmlspecialchars($PHP_SELF); ?>'>
 Browse for Image (jpg): <input type="file" name="image_file" size="35">
 <br>
