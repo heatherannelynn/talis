@@ -1,353 +1,279 @@
-<! DOCTYPE>
-<html lang="en">
+<!DOCTYPE html>
+   
+
+<html style="scroll-behavior:smooth !important" lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="shortcut icon" href="../favicon.ico">
-<link rel="stylesheet" type="text/css" href="css/style4.css" />
-<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<?php
+    <title>Talis.tv</title>
+  
+<meta property="og:image" content="https://sitesappsimages.com/assets/images/thumb.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<link rel="icon" type="image/png" href="assets/icons/logo_icon.png">
+
+ <link rel="stylesheet" href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity=
+"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous" /><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <?php
 require ('../comm_connect.php');
 require ('../siteid.php');
 require ('functions.php');
+require ('../css/talis.css');
 ?>
 </head>
-<body style="background-color:#fff;font-family:Raleway, sans-serif;font-size:14pt;">
-<div class="container">
-<!--
-<link rel="stylesheet" href="css/commulist.css" type="text/css" media="screen" />
-
-TO TREAT THE CSS AS A PHP FILE AT THIS .htaccess FILE TO THE CSS DIRECTORY
-
-AddHandler application/x-httpd-php .css
-php_value default_mimetype "text/css"
-
--->
-
-<!-- UPLOAD FILES -->
-<!-- TODO - ADD SHOWDATE HIDE DATE, TITLE, CLASS ID - NEEDS MORE DEFINITION... -->
-<div class="container">
-<nav class="navbar sticky navbar-expand-lg navbar-collapse" data-target="mainNav" >
-<div id="mainNav" data-toggle="collapse">
-<!--  TODO  Make this a jQuery function -->
-<!--<li><a id="link1" onclick="jumpTo('l1'); return('true');" href='#l1'>Site Themes</a></li>-->
-<li><a id="link2" href='#l2'>Primary Links</a></li>
-<li><a id="link3" href='#l3'>Secondary Links</a></li>
-<li><a id="link4" href='#l4'>Categories</a></li>
-<li><a id="link5" href='#l5'>Add Media</a></li>
-<li><a id="link6" href='#l6'>Add Content</a></li>
-<li><a id="link7" target="_blank" href='../index.php'>Front End</a></li>
-<!--<li><a id="link8" href='#l8'>Set Permissions</a></li>-->
-</div>
-</nav></div>
-<!-- END DELETE CONTENT FOR PRIMARY AND SIDE MENU CATEGORIES -->
-
-<!--  TODO  Make this a BOOTSTRAP NAV -->
+<body style="padding-top:110px;">
+<div class="container-fluid" >
 <?php
-//include('/../../nav.php');
+require('nav.php');
+?>
+ 
+<!--Pad Top-->
+<div id="l4" >
+<div class="col"><!-- CREATE CONTENT --><br/><br/><br/><br/>
+<?php
+require('content.php');
 ?>
 
+<!-- LIST - DELETE CONTENT-->
+<?php
+require('delContent.php');
+?>
+<!-- END LIST - DELETE CONTENT-->
 
-
-<!-- END SELECT/MANAGE - EDIT THEMES -->
-
-
+</div>
+</div>
+<div class="row">
 
 <!-- ENTER HEADINGS FOR PRIMARY LINKS -->
-<?php
-if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and siteid='$siteid'")){
-	if($myrow3=$res3->fetch_object()){
-	do{
-	printf("<div id='l2'><p>Weblinks/Primary Links</p><form method=post action=%s>
-	
-	<input type=text name=link1 value='%s'>
-	<input type=text name=link2 value='%s'>
-	<input type=text name=link3 value='%s'>
-	<input type=text name=link4 value='%s'>
-	<input type=text name=link5 value='%s'>
-	<input type=text name=link6 value='%s'>
-	<input type=text name=link7 value='%s'>
-	<input type=text name=link8 value='%s'>
-	<input type=submit name=go value='Go'>
-	</form></div>",htmlspecialchars($PHP_SELF), $myrow3->link1, $myrow3->link2, $myrow3->link3, $myrow3->link4, $myrow3->link5, $myrow3->link6,
-	$myrow3->link7, $myrow3->link8);
-	}while($myrow3=$res3->fetch_object());
-	} else {
+<div id="l1"  class="col">
 
-?>
-<div id='l2'><p>Weblinks/Primary Links</p><form method=post action=<?php echo htmlspecialchars($PHP_SELF); ?>>
-	<input type=text name=link1 value='<?php echo $link1; ?>'>
-	<input type=text name=link2 value='<?php echo $link2; ?>'>
-	<input type=text name=link3 value='<?php echo $link3; ?>'>
-	<input type=text name=link4 value='<?php echo $link4; ?>'>
-	<input type=text name=link5 value='<?php echo $link5; ?>'>
-	<input type=text name=link6 value='<?php echo $link6; ?>'>
-	<input type=text name=link7 value='<?php echo $link7; ?>'>
-	<input type=text name=link8 value='<?php echo $link8; ?>'>
-	<input type=submit name=go value='Go'>
-	</form></div>
 <?php
-	}
-}
+require('weblinks.php');
 ?>
+</div>
+
 <!-- END ENTER HEADINGS FOR PRIMARY LINKS -->
+
+
+
+
+
+<div id="l2" class="col">
 
 <!-- ENTER TITLES FOR SIDE MENU LINKS -->
 <?php
-if($res4 = $mysqli->query("select * from catlinks where delrec != 'on' and siteid='$siteid'")){
-	if($myrow4=$res4->fetch_object()){
-	do{
-	printf("<div id='l3'><p>Catlinks/Secondary Links</p><form method=post action='%s'>
-	<p><input type='text' name=sidenav1 value='%s'></p>
-	<p><input type='text' name=sidenav2 value='%s'></p>
-	<p><input type='text' name=sidenav3 value='%s'></p>
-	<p><input type='text' name=sidenav4 value='%s'></p>
-	<p><input type='text' name=sidenav5 value='%s'></p>
-	<p><input type='text' name=sidenav6 value='%s'></p>
-	<p><input type='text' name=sidenav7 value='%s'></p>
-	<p><input type='text' name=sidenav8 value='%s'></p>
-	<p><input type='text' name=sidenav9 value='%s'></p>
-	<p><input type='text' name=sidenav10 value='%s'></p>
-	<p><input type='text' name=sidenav11 value='%s'></p>
-	<p><input type='text' name=sidenav12 value='%s'></p>
-	<p><input type='text' name=sidenav13 value='%s'></p>
-	<p><input type='text' name=sidenav14 value='%s'></p>
-	<p><input type='text' name=sidenav15 value='%s'></p>
-	<p><input type='submit' name='save' value='save'></p>
-	</form></div>",htmlspecialchars($PHP_SELF), $myrow4->sidenav1, $myrow4->sidenav2, $myrow4->sidenav3, $myrow4->sidenav4,
-	$myrow4->sidenav5, $myrow4->sidenav6, $myrow4->sidenav7, $myrow4->sidenav8, $myrow4->sidenav9,
-	$myrow4->sidenav10, $myrow4->sidenav11, $myrow4->sidenav12, $myrow4->sidenav13, $myrow4->sidenav14,
-	$myrow4->sidenav15);
-
-	} while($myrow4=$res4->fetch_object());
-	} else {
-	?>
-	<div id="l3"><p>Catlinks/Secondary Links</p>
-
-	<form method=post action='<?php htmlspecialchars($PHP_SELF);?>'>
-		<p><input type='text' name=sidenav1 value='<?php echo $sidenav1; ?>'></p>
-		<p><input type='text' name=sidenav2 value='<?php echo $sidenav2; ?>'></p>
-		<p><input type='text' name=sidenav3 value='<?php echo $sidenav3; ?>'></p>
-		<p><input type='text' name=sidenav4 value='<?php echo $sidenav4; ?>'></p>
-		<p><input type='text' name=sidenav5 value='<?php echo $sidenav5; ?>'></p>
-		<p><input type='text' name=sidenav6 value='<?php echo $sidenav6; ?>'></p>
-		<p><input type='text' name=sidenav7 value='<?php echo $sidenav7; ?>'></p>
-		<p><input type='text' name=sidenav8 value='<?php echo $sidenav8; ?>'></p>
-		<p><input type='text' name=sidenav9 value='<?php echo $sidenav9; ?>'></p>
-		<p><input type='text' name=sidenav10 value='<?php echo $sidenav10; ?>'></p>
-		<p><input type='text' name=sidenav11 value='<?php echo $sidenav11; ?>'></p>
-		<p><input type='text' name=sidenav12 value='<?php echo $sidenav12; ?>'></p>
-		<p><input type='text' name=sidenav13 value='<?php echo $sidenav13; ?>'></p>
-		<p><input type='text' name=sidenav14 value='<?php echo $sidenav14; ?>'></p>
-		<p><input type='text' name=sidenav15 value='<?php echo $sidenav15; ?>'></p>
-		<p><input type='submit' name='save' value='save'></p>
-	</form>
-	</div>
-	<?php
-	}
-
-}
+require('catlinks.php');
 ?>
 <!-- END ENTER TITLES FOR SIDE MENU LINKS -->
 
-<!-- CREATE CATEGORIES FOR PRIMARY AND SIDE MENU LINKS -->
-<?php
-if($res14 = $mysqli->query("select * from catlinks where delrec != 'on' and siteid='$siteid'")){
-	while($myrow14=$res14->fetch_object()){
-$sidenav1=$myrow14->sidenav1;
-$sidenav2=$myrow14->sidenav2;
-$sidenav3=$myrow14->sidenav3;
-$sidenav4=$myrow14->sidenav4;
-$sidenav5=$myrow14->sidenav5;
-$sidenav6=$myrow14->sidenav6;
-$sidenav7=$myrow14->sidenav7;
-$sidenav8=$myrow14->sidenav8;
-$sidenav9=$myrow14->sidenav9;
-$sidenav10=$myrow14->sidenav10;
-$sidenav11=$myrow14->sidenav11;
-$sidenav12=$myrow14->sidenav12;
-$sidenav13=$myrow14->sidenav13;
-$sidenav14=$myrow14->sidenav14;
-$sidenav15=$myrow14->sidenav15;
-
-}
-?>
-<div id="l4"><p>Secondary Links/Catlnks  ---> Note CATEGORIES are listed underneath these dynamic secondary links appearing in side or top of viewport </p>
-<form method="post" action="<?php echo htmlspecialchars($PHP_SELF);  ?>">
-
-
-<p><a name='categories'>Create a category/if content exists, all posts associated with this category will fall underneath this top level , or this can be used as a portal., if no target url exists and there is no content for a particular category, the category will not appear.</a></p>
-
-<p>Category Name<input type="text" name="catname" value="<?php echo $catname;?>"></p>
-<p><textarea name="catdesc" rows=5 cols=15></textarea></p>
-<p>Group<input type="text" name="cat_group" value="<?php echo $cat_group;?>"></p>
-<p>Category URL<input type="text" name="cat_url" value="<?php echo $cat_url;?>"></p>
-<p>List Order<input type="text" name="listorder" value="<?php echo $cat_group;?>"></p>
-<p><input style='font-family:verdana,sans-serif;font-size:7.5pt' type="submit" name="create_category" value="Enter"></p>
-
-<input type="hidden" name="siteid" value="<?php echo $siteid;?>">
-<p>TODO make each primary link associate to a different page depending on navigation links as was the original design </p>
-<br/><p>For Example, by clicking on the sidenav/category will brink up new primary links with content specific to the selected category.This will give 8 x 15 content values visible on the app</p>
-<p>Select a Navigation ID</p>
-<div class="container">
-<?php
-for($count = 1; $count < 16; $count++) {
-	$thissidenav = 'sidenav' . $count;
-	$chknav = 'chknav'.$count;
-	if($$thissidenav != '') { 		
-	printf('<div class="row form-group"><div class="col"><input class="form-control" type="checkbox" name="%s" value="checked" /></div><div class="col">%s</div></div>',$chknav, $$thissidenav);
-	}
-
-}
-
-?>
-</div>
-</form>
-<?php
-}
-?>
-
 <!-- END CREATE CATEGORIES FOR PRIMARY AND SIDE MENU LINKS -->
-
 <!-- LIST CATEGORIES - DELETE CATEGORIES -->
-<hr>
-<?php
-
-if($result = $mysqli->query("select * from categories where siteid='$siteid' and delrec != 'on'")){
-echo "<p>These are your current categories.  To delete one, click on the X</p>";
-echo "<p>Categories</p>";
-	if($myrow=$result->fetch_object()){
-	do{
-    printf("<form method=post action='%s'>
-    <input type=submit name='del_category' value='X'>
-    <input type=text name='siteid' value='%s'>
-    <input type=text name='this_cat_id' value='%s'>%s</form>", htmlspecialchars($PHP_SELF), $myrow->siteid, $myrow->id, $myrow->catname);
-    }while($myrow=$result->fetch_object());
-    } else {
-    echo "No categories found";
-    }
-}
-?>
-<!-- END LIST CATEGORIES - DELETE CATEGORIES -->
-
-
-<p>Upload images will copy to the server, you can also copy and paste images in the Post Content section</p>
-<p class="lead">Uploading images here will allow you to reuse the images, for example, a seasonal promotion. After uploading an image here, you can select it in the post content section.</p>
-<!-- UPLOAD FILE TYPES .gif, .jpeg, and .png -->
-
-<p><a name='images'>Upload file script</a></p>
-<div id='l5'><form method='POST' enctype='multipart/form-data' name='frmmain' action='<?php htmlspecialchars($PHP_SELF); ?>'>
-Browse for Image (jpg): <input type="file" name="image_file" size="35">
-<br>
-<input type="submit" value="  Upload File  " name="action">
-</form></div>
-<!-- END UPLOAD FILE TYPES .gif, .jpeg, and .png -->
-
-<!-- CREATE CONTENT -->
-<hr><div id="l6">
-<form method="post" action="<?php echo htmlspecialchars($PHP_SELF);  ?>">
-<p><a name='content'>Create Content</a></p>
-<?php
-if($res5=$mysqli->query("select * from categories where siteid='$siteid' and delrec!='on'")){
-echo "<p>Category<select name='catid'>";
-	while($myrow5=$res5->fetch_object()){
-	$catname=$myrow5->catname;
-	$catid=$myrow5->id;
-	printf("<option value='%s'>%s</option>",$catid, $catname);
-	}
-echo "</select></p>";
-} else {
-echo "<p>No categories found.  Add some.</p>";
-}
-
-if($res15=$mysqli->query("select * from weblinks where siteid='$siteid' and delrec!='on'")){
-	while($myrow15=$res15->fetch_object()){
-	$link1=$myrow15->link1;
-	$link2=$myrow15->link2;
-	$link3=$myrow15->link3;
-	$link4=$myrow15->link4;
-	$link5=$myrow15->link5;
-	$link6=$myrow15->link6;
-	$link7=$myrow15->link7;
-	$link8=$myrow15->link8;
-	}
-}
-?>
-
-<input type="hidden" name="siteid" value="<?php echo $siteid; ?>">
-<p>Featured: <input name="featured" type="checkbox" <?php if ($featured == 1){?> checked="checked" <?php } ?>/></p>
-<p><?php echo $link1;?>: <input name="link1" type="checkbox" <?php if ($link1 == 1){?> checked="checked" <?php } ?>/></p>
-<p><?php echo $link2;?>: <input name="link2" type="checkbox" <?php if ($link2 == 1){?> checked="checked" <?php } ?>/></p>
-<p><?php echo $link3;?>: <input name="link3" type="checkbox" <?php if ($link3 == 1){?> checked="checked" <?php } ?>/></p>
-<p><?php echo $link4;?>: <input name="link4" type="checkbox" <?php if ($link4 == 1){?> checked="checked" <?php } ?>/></p>
-<p><?php echo $link5;?>: <input name="link5" type="checkbox" <?php if ($link5 == 1){?> checked="checked" <?php } ?>/></p>
-<p><?php echo $link6;?>: <input name="link6" type="checkbox" <?php if ($link6 == 1){?> checked="checked" <?php } ?>/></p>
-<p><?php echo $link7;?>: <input name="link7" type="checkbox" <?php if ($link7 == 1){?> checked="checked" <?php } ?>/></p>
-<p><?php echo $link8;?>: <input name="link8" type="checkbox" <?php if ($link8 == 1){?> checked="checked" <?php } ?>/></p>
-<p>Title<input type="text" name="title" value="<?php echo $title;?>"></p>
-<p>Embed Code<input type="text" name="embed_code" value="<?php echo $embed_code;?>"></p>
-<?php
-if($res9=$mysqli->query("select * from imagelibrary where siteid='$siteid' and delrec!='on'")){
-echo "<p>Image : <select name='image_name'>";
-	while($myrow9=$res9->fetch_object()){
-	$image_file=$myrow9->image_file;
-	$image_id=$myrow9->id;
-	printf("<option value='%s'>%s</option>",$image_id, $image_file);
-	}
-echo "</select></p>";
-} else {
-echo "<p>No Images found.  Add some.</p>";
-}
-?>
-<p>Content<textarea rows=10 cols=20 name="thislisting"><?php echo $thislisting;?></textarea></p>
-<p>Details<textarea rows=10 cols=20 name="details"><?php echo $details;?></textarea></p>
-<p>Member ID<input type="text" name="memberid" value="<?php echo $memberid;?>"></p>
-<p>Target Name<input type="text" name="target_name" value="<?php echo $target_name;?>"></p>
-<p>Target URL<input type="text" name="target_url" value="<?php echo $target_url;?>"></p>
-<p>Author Name<input type="text" name="authname" value="<?php echo $authname;?>"></p>
-<p>Date Created<input type="date" name="origdate" value="<?php echo $origdate;?>"></p>
-<p>Showdate<input type="date" name="showdate" value="<?php echo $showdate;?>"></p>
-<p>Hidedate<input type="date" name="hidedate" value="<?php echo $hidedate;?>"></p>
-<p>Contact Name<input type="text" name="contactname" value="<?php echo $contactname;?>"></p>
-<p>Contact Notes<input type="text" name="contactnotes" value="<?php echo $contactnotes;?>"></p>
-<p>Contact Email<input type="text" name="contactemail" value="<?php echo $contactemail;?>"></p>
-<p>Contact Phone1<input type="text" name="contactphone1" value="<?php echo $contactphone1;?>"></p>
-<p>Contact Phone2<input type="text" name="contactphone2" value="<?php echo $contactphone2;?>"></p>
-<p>Link to URL<input type="text" name="linkto" value="<?php echo $linkto;?>"></p>
-<p><input style='font-family:verdana,sans-serif;font-size:7.5pt' type="submit" name="create_classified" value="Enter"></p>
-</form></div>
-<!-- END CREATE CONTENT -->
-
-<div id='l8'>
-<!-- LIST - DELETE CONTENT-->
-<?php
-if($res7=$mysqli->query("SELECT * FROM `classifieds` WHERE siteid='$siteid' and delrec != 'on' ")){
-
-echo "<p>Content</p>";
-	while($myrow7=$res7->fetch_object()){
-    if($myrow7->featured != '') { $feat = "Featured"; }
-    if($myrow7->link1 != '') { $l1=$link1;}
-    if($myrow7->link2 != '') { $l2=$link2;}
-    if($myrow7->link3 != '') { $l3=$link3;}
-    if($myrow7->link4 != '') { $l4=$link4;}
-    if($myrow7->link5 != '') { $l5=$link5;}
-    if($myrow7->link6 != '') { $l6=$link6;}
-    if($myrow7->link7 != '') { $l7=$link7;}
-    if($myrow7->link8 != '') { $l8=$link8;}
-    printf("<form method=post action=%s><input type=submit name='del_classified' value='X'><input type=hidden
-    name=this_class_id value=%s>%s<p><font color=red>%s %s %s %s %s %s %s %s %s </font></p><p>%s</p></form>", htmlspecialchars($PHP_SELF), $myrow7->id, $myrow7->title,
-    $feat, $l1, $l2, $l3, $l4, $l5, $l6, $l7, $l8, $myrow7->thislisting);
-	}
-}
-
-?>
-<!-- END LIST - DELETE CONTENT-->
 </div>
 
-</div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6SpejpU02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</div>
+<div class="row">
+<div id="l3" class="col">
+
+<?php
+require('categories.php');
+?>
+
+</div>
+</div>
+<div class="row">
+
+<div id="l5" class="col">
+
+<?php
+require('upImages.php');
+?>
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+ <!-- Import jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity=
+"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous">
+    </script>
+      
+    <!-- Import popper.js cdn -->
+    <script src=
+"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity=
+"sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous">
+    </script>
+      
+    <!-- Import javascript cdn -->
+    <script src=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity=
+"sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous">
+    </script>
+      
+<script>
+$(window).ready(function() { 
+jumpTo(strLocTag){
+    window.location.hash = strLocTag;
+}
+}
+);
+
+</script>
+<script>
+$( "#imgBrand" ).click(function() {
+  $( "#home" ).show();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+
+$( "#link1" ).click(function() {
+  //$( "#home" ).hide();
+  $( "#l1" ).show();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+
+$( "#link2" ).click(function() {
+  //$( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).show();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+
+$( "#link3" ).click(function() {
+  //$( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).show();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+$( "#link4" ).click(function() {
+  //$( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).show();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+$( "#link5" ).click(function() {
+  //$( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).show();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+$( "#link6" ).click(function() {
+  //$( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).show();
+  $( "#l7" ).hide();
+  $( "#l8" ).hide();
+
+});
+$( "#link7" ).click(function() {
+  //$( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).show();
+  $( "#l8" ).hide();
+
+});
+$( "#link8" ).click(function() {
+  //$( "#home" ).hide();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).show();
+
+});
+</script>
+<script>
+$(document).ready(function() {
+$("iframe").addClass('embed-responsive-item');
+  $( "#home" ).show();
+  $( "#l1" ).hide();
+  $( "#l2" ).hide();
+  $( "#l3" ).hide();
+  $( "#l4" ).hide();
+  $( "#l5" ).hide();
+  $( "#l6" ).hide();
+  $( "#l7" ).hide();
+  $( "#l8" ).show();
+});
+</script>
+<script>
+$(window).ready(function() {
+ //alert('Subscribe');
+  $( "#home" ).show();
+  $( "#l1" ).show();
+  $( "#l2" ).show();
+  $( "#l3" ).show();
+  $( "#l4" ).show();
+  $( "#l5" ).show();
+  $( "#l6" ).show();
+  $( "#l7" ).show();
+  $( "#l8" ).show();
+});
+</script>
 </body>
 </html>
