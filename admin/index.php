@@ -59,127 +59,7 @@ require ('../css/talis.css');
 					  </div>
                 </nav>
 				
- 
-<!--Pad Top-->
-<div class="container"><div class="row">
-	<div id="l4" class=" class="col-md=4"">
-
-	<form method="post" action="<?php echo htmlspecialchars($PHP_SELF);  ?>">
-	<p><a name='content'>Create Content</a></p>
-	<?php
-	if($res5=$mysqli->query("select * from categories where siteid='$siteid' and delrec!='on'")){
-	echo "<p>Category<select name='catid'>";
-		while($myrow5=$res5->fetch_object()){
-		$catname=$myrow5->catname;
-		$catid=$myrow5->id;
-		printf("<option value='%s'>%s</option>",$catid, $catname);
-		}
-	echo "</select></p>";
-	} else {
-	echo "<p>No categories found.  Add some.</p>";
-	}
-
-	if($res15=$mysqli->query("select * from weblinks where siteid='$siteid' and delrec!='on'")){
-		while($myrow15=$res15->fetch_object()){
-		$link1=$myrow15->link1;
-		$link2=$myrow15->link2;
-		$link3=$myrow15->link3;
-		$link4=$myrow15->link4;
-		$link5=$myrow15->link5;
-		$link6=$myrow15->link6;
-		$link7=$myrow15->link7;
-		$link8=$myrow15->link8;
-		}
-	}
-	?>
-
-
-	</div>
-
-	</div></div><div class="container"><div class="row">
-
-	<div class="col">
-	<input type="hidden" name="siteid" value="<?php echo $siteid; ?>">
-	<p>Featured: <input name="featured" type="checkbox" <?php if ($featured == 1){?> checked="checked" <?php } ?>/></p>
-	<p><?php echo $link1;?>: <input name="link1" type="checkbox" <?php if ($link1 == 1){?> checked="checked" <?php } ?>/></p>
-	<p><?php echo $link2;?>: <input name="link2" type="checkbox" <?php if ($link2 == 1){?> checked="checked" <?php } ?>/></p>
-	<p><?php echo $link3;?>: <input name="link3" type="checkbox" <?php if ($link3 == 1){?> checked="checked" <?php } ?>/></p>
-	<p><?php echo $link4;?>: <input name="link4" type="checkbox" <?php if ($link4 == 1){?> checked="checked" <?php } ?>/></p>
-	<p><?php echo $link5;?>: <input name="link5" type="checkbox" <?php if ($link5 == 1){?> checked="checked" <?php } ?>/></p>
-	<p><?php echo $link6;?>: <input name="link6" type="checkbox" <?php if ($link6 == 1){?> checked="checked" <?php } ?>/></p>
-	<p><?php echo $link7;?>: <input name="link7" type="checkbox" <?php if ($link7 == 1){?> checked="checked" <?php } ?>/></p>
-	<p><?php echo $link8;?>: <input name="link8" type="checkbox" <?php if ($link8 == 1){?> checked="checked" <?php } ?>/></p>
-	<p>Title<input type="text" name="title" value="<?php echo $title;?>"></p>
-	<p>Embed Code<input type="text" name="embed_code" value="<?php echo $embed_code;?>"></p>
-	<?php
-	if($res9=$mysqli->query("select * from imagelibrary where siteid='$siteid' and delrec!='on'")){
-	echo "<p>Image : <select name='image_name'>";
-		while($myrow9=$res9->fetch_object()){
-		$image_file=$myrow9->image_file;
-		$image_id=$myrow9->id;
-		printf("<option value='%s'>%s</option>",$image_id, $image_file);
-		}
-	echo "</select></p>";
-	} else {
-	echo "<p>No Images found.  Add some.</p>";
-	}
-	?>
-	</div>
-
-	<div class="col">
-	<p>Content<textarea rows=10 cols=20 name="thislisting"><?php echo $thislisting;?></textarea></p>
-	<p>Details<textarea rows=10 cols=20 name="details"><?php echo $details;?></textarea></p>
-	</div>
-
-	<div class="col">
-	<p>Member ID<input type="text" name="memberid" value="<?php echo $memberid;?>"></p>
-	<p>Target Name<input type="text" name="target_name" value="<?php echo $target_name;?>"></p>
-	<p>Target URL<input type="text" name="target_url" value="<?php echo $target_url;?>"></p>
-	<p>Author Name<input type="text" name="authname" value="<?php echo $authname;?>"></p>
-	<p>Date Created<input type="date" name="origdate" value="<?php echo $origdate;?>"></p>
-	<p>Showdate<input type="date" name="showdate" value="<?php echo $showdate;?>"></p>
-	<p>Hidedate<input type="date" name="hidedate" value="<?php echo $hidedate;?>"></p>
-	<p>Contact Name<input type="text" name="contactname" value="<?php echo $contactname;?>"></p>
-	<p>Contact Notes<input type="text" name="contactnotes" value="<?php echo $contactnotes;?>"></p>
-	<p>Contact Email<input type="text" name="contactemail" value="<?php echo $contactemail;?>"></p>
-	<p>Contact Phone1<input type="text" name="contactphone1" value="<?php echo $contactphone1;?>"></p>
-	<p>Contact Phone2<input type="text" name="contactphone2" value="<?php echo $contactphone2;?>"></p>
-	<p>Link to URL<input type="text" name="linkto" value="<?php echo $linkto;?>"></p>
-	<p><input style='font-family:verdana,sans-serif;font-size:7.5pt' type="submit" name="create_classified" value="Enter"></p>
-	</div></form>
-</div>
-<!-- END CREATE CONTENT -->
-</div></div><div class="container"><div class="row">
-	<div class="col">
-	<!-- LIST - DELETE CONTENT-->
-	<?php
-	$res7=$mysqli->query("SELECT * FROM `classifieds` WHERE siteid='$siteid' and delrec != 'on' ");
-	if($myrow7=$res7->fetch_object()){
-	echo "<p>Content</p>";
-		do{
-		if($myrow7->featured != '') { $feat = "Featured"; }
-		if($myrow7->link1 != '') { $l1=$link1;}
-		if($myrow7->link2 != '') { $l2=$link2;}
-		if($myrow7->link3 != '') { $l3=$link3;}
-		if($myrow7->link4 != '') { $l4=$link4;}
-		if($myrow7->link5 != '') { $l5=$link5;}
-		if($myrow7->link6 != '') { $l6=$link6;}
-		if($myrow7->link7 != '') { $l7=$link7;}
-		if($myrow7->link8 != '') { $l8=$link8;}
-		printf("<form method=post action=%s><input type=submit name='del_classified' value='X'><input type=hidden
-		name=this_class_id value=%s>%s<p><font color=red>%s %s %s %s %s %s %s %s %s </font></p><p>%s</p></form>", htmlspecialchars($PHP_SELF), $myrow7->id, $myrow7->title,
-		$feat, $l1, $l2, $l3, $l4, $l5, $l6, $l7, $l8, $myrow7->thislisting);
-		}while($myrow7=$res7->fetch_object());
-	}
-
-	?>
-	<!-- END LIST - DELETE CONTENT-->
-
-
-	</div>
-
-
-	</div></div><div class="container"><div class="row">
+ <div class="container"><div class="row">
 		<div id="l1"  class="col">
 
 	<?php
@@ -291,9 +171,253 @@ require ('../css/talis.css');
 	</div>
 
 	
-</div></div><div class="container"><div class="row">
+</div></div>
+
+<div class="container"><div class="row">
+	<div class="col">
+	<!-- LIST - DELETE CONTENT-->
+	<?php
+	$res7=$mysqli->query("SELECT * FROM `classifieds` WHERE siteid='$siteid' and delrec != 'on' ");
+	if($myrow7=$res7->fetch_object()){
+	echo "<p>Content</p>";
+		do{
+		if($myrow7->featured != '') { $feat = "Featured"; }
+		if($myrow7->link1 != '') { $l1=$link1;}
+		if($myrow7->link2 != '') { $l2=$link2;}
+		if($myrow7->link3 != '') { $l3=$link3;}
+		if($myrow7->link4 != '') { $l4=$link4;}
+		if($myrow7->link5 != '') { $l5=$link5;}
+		if($myrow7->link6 != '') { $l6=$link6;}
+		if($myrow7->link7 != '') { $l7=$link7;}
+		if($myrow7->link8 != '') { $l8=$link8;}
+		printf("<form method=post action=%s><input type=submit name='del_classified' value='X'><input type=hidden
+		name=this_class_id value=%s>%s<p><font color=red>%s %s %s %s %s %s %s %s %s </font></p><p>%s</p></form>", htmlspecialchars($PHP_SELF), $myrow7->id, $myrow7->title,
+		$feat, $l1, $l2, $l3, $l4, $l5, $l6, $l7, $l8, $myrow7->thislisting);
+		}while($myrow7=$res7->fetch_object());
+	}
+
+	?>
+	<!-- END LIST - DELETE CONTENT-->
 
 
+	</div>
+
+
+	</div></div>
+
+
+<div class="container"><div class="row">
+	<div id="l4" class=" class="col-md=4"">
+
+	<form method="post" action="<?php echo htmlspecialchars($PHP_SELF);  ?>">
+	<p><a name='content'>Create Content</a></p>
+	<?php
+	if($res5=$mysqli->query("select * from categories where siteid='$siteid' and delrec!='on'")){
+	echo "<p>Category<select name='catid'>";
+		while($myrow5=$res5->fetch_object()){
+		$catname=$myrow5->catname;
+		$catid=$myrow5->id;
+		printf("<option value='%s'>%s</option>",$catid, $catname);
+		}
+	echo "</select></p>";
+	} else {
+	echo "<p>No categories found.  Add some.</p>";
+	}
+
+	if($res15=$mysqli->query("select * from weblinks where siteid='$siteid' and delrec!='on'")){
+		while($myrow15=$res15->fetch_object()){
+		$link1=$myrow15->link1;
+		$link2=$myrow15->link2;
+		$link3=$myrow15->link3;
+		$link4=$myrow15->link4;
+		$link5=$myrow15->link5;
+		$link6=$myrow15->link6;
+		$link7=$myrow15->link7;
+		$link8=$myrow15->link8;
+		}
+	}
+	?>
+
+
+	</div>
+
+	</div></div>
+<div class="container">
+	<div class="row">
+
+		<div class="col">
+		<input type="hidden" name="siteid" value="<?php echo $siteid; ?>">
+		<p>Featured: <input name="featured" type="checkbox" <?php if ($featured == 1){?> checked="checked" <?php } ?>/></p>
+		<p><?php echo $link1;?>: <input name="link1" type="checkbox" <?php if ($link1 == 1){?> checked="checked" <?php } ?>/></p>
+		<p><?php echo $link2;?>: <input name="link2" type="checkbox" <?php if ($link2 == 1){?> checked="checked" <?php } ?>/></p>
+		<p><?php echo $link3;?>: <input name="link3" type="checkbox" <?php if ($link3 == 1){?> checked="checked" <?php } ?>/></p>
+		<p><?php echo $link4;?>: <input name="link4" type="checkbox" <?php if ($link4 == 1){?> checked="checked" <?php } ?>/></p>
+		<p><?php echo $link5;?>: <input name="link5" type="checkbox" <?php if ($link5 == 1){?> checked="checked" <?php } ?>/></p>
+		<p><?php echo $link6;?>: <input name="link6" type="checkbox" <?php if ($link6 == 1){?> checked="checked" <?php } ?>/></p>
+		<p><?php echo $link7;?>: <input name="link7" type="checkbox" <?php if ($link7 == 1){?> checked="checked" <?php } ?>/></p>
+		<p><?php echo $link8;?>: <input name="link8" type="checkbox" <?php if ($link8 == 1){?> checked="checked" <?php } ?>/></p>
+		<p>Title<input type="text" name="title" value="<?php echo $title;?>"></p>
+		<p>Embed Code<input type="text" name="embed_code" value="<?php echo $embed_code;?>"></p>
+		<?php
+		if($res9=$mysqli->query("select * from imagelibrary where siteid='$siteid' and delrec!='on'")){
+		echo "<p>Image : <select name='image_name'>";
+			while($myrow9=$res9->fetch_object()){
+			$image_file=$myrow9->image_file;
+			$image_id=$myrow9->id;
+			printf("<option value='%s'>%s</option>",$image_id, $image_file);
+			}
+		echo "</select></p>";
+		} else {
+		echo "<p>No Images found.  Add some.</p>";
+		}
+		?>
+		</div>
+
+		<div class="col">
+		<p>Content<textarea rows=10 cols=20 name="thislisting"><?php echo $thislisting;?></textarea></p>
+		<p>Details<textarea rows=10 cols=20 name="details"><?php echo $details;?></textarea></p>
+		</div>
+
+		<div class="col">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+					<label for="memberid">Member ID</label>
+					</div>
+					<div class="col">
+					<input type="text" name="memberid" value="<?php echo $memberid;?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">	
+					<label for="target_name">Target Name</label>
+					</div>
+					<div class="col">
+					<input type="text" name="target_name" value="<?php echo $target_name;?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+					<label for="target_url">Target URL</label>
+					</div>
+					<div class="col">
+					<input type="text" name="target_url" value="<?php echo $target_url;?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+					<label for="authname">Author Name</label>
+					</div>
+					<div class="col">
+					<input type="text" name="authname" value="<?php echo $authname;?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+					<label for="origdate">Date Created</label>
+					</div>
+					<div class="col">
+					<input type="date" name="origdate" value="<?php echo $origdate;?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+					<label for="showdate">Showdate</label>
+					</div>
+					<div class="col">
+					<input type="date" name="showdate" value="<?php echo $showdate;?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+					<label for="hidedate">Hidedate</label>
+					</div>
+					<div class="col">
+					<input type="date" name="hidedate" value="<?php echo $hidedate;?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+					<label for="contactname">Contact Name</label>
+					</div>
+					<div class="col">
+					<input type="text" name="contactname" value="<?php echo $contactname;?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+					<label for="contactnotes">Contact Notes</label>
+					</div>
+					<div class="col">
+					<input type="text" name="contactnotes" value="<?php echo $contactnotes;?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+					<label for="contactemail">Contact Email</label>
+					</div>
+					<div class="col">
+					<input type="text" name="contactemail" value="<?php echo $contactemail;?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+					<label for="contactphone1">Contact Phone1</label>
+					</div>
+					<div class="col">
+					<input type="text" name="contactphone1" value="<?php echo $contactphone1;?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+					<label for="contactphone2">Contact Phone2</label>
+					</div>
+					<div class="col">
+					<input type="text" name="contactphone2" value="<?php echo $contactphone2;?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+					<label for="linkto">Link to URL</label>
+					</div>
+					<div class="col">
+					<input type="text" name="linkto" value="<?php echo $linkto;?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+					<input style='font-family:verdana,sans-serif;font-size:7.5pt' type="submit" name="create_classified" value="Enter">
+					</div>
+				</div> <!-- row-->
+			</div> <!-- container-->
+	
+
+		<!-- END CREATE CONTENT -->
+
+	</form>
+
+	</div> <!-- col-->
+	</div> <!-- row-->
+</div> <!-- container -->
+
+<div class="container"><div class="row">
+
+<div id="l5" class="col">
+
+    <p>Upload Images</p>
+    <p>Upload images will copy to the server, you can also copy and paste images in the Post Content section</p>
+    <p class="lead">Uploading images here will allow you to reuse the images.</p>
+    <!-- UPLOAD FILE TYPES .gif, .jpeg, and .png -->
+
+ 
+        <div class="form-group">
+            <form method='POST' enctype='multipart/form-data' name='frmmain' action='<?php htmlspecialchars($PHP_SELF); ?>'>
+            Browse for Image (jpg): <input type="file" name="image_file" size="35">
+            <br/>
+            <input type="submit" value="  Upload File  " name="action">
+            </form>
+        </div>
+        <!-- END UPLOAD FILE TYPES .gif, .jpeg, and .png -->
 	<div id="l3" class="col">
 
 	<!-- CREATE CATEGORIES FOR PRIMARY AND SIDE MENU LINKS -->
@@ -341,16 +465,17 @@ require ('../css/talis.css');
 <br/><p>For Example, by clicking on the sidenav/category will brink up new primary links with content specific to the selected category   15 sidenavs / 8 primary navs</p>-->
 <?php
 echo "<div class='container'><div class='row'>";
-
 for($count = 1; $count < 16; $count++) {
-	$thissidenav = 'sidenav' . $count;
-	$chknav = 'chknav'.$count;
-	if($$thissidenav != '') { 	
+		$thissidenav = 'sidenav' . $count;
+		$chknav = 'chknav'.$count;
+		if($$thissidenav != '') { 	
 	
-	printf('<div class="col"><p><input class="form-control" type="checkbox" style="width:18px;height:18px;"  name="%s" value="checked" />&nbsp;%s</p></div>',$chknav, $$thissidenav);
-	}
+		printf('<div class="col"><p><input class="form-control" type="checkbox" style="width:18px;height:18px;"  name="%s" value="checked" />&nbsp;%s</p></div>',$chknav, $$thissidenav);
+		}
+
 
 }
+listCategories();
 ?>
 </form>
 
@@ -374,26 +499,11 @@ echo "<p>Delete Categories</p>";
 ?>
 
 
-</div> <!-- col outer content-->
-
-<div id="l5" class="col">
-
-    <p>Upload Images</p>
-    <p>Upload images will copy to the server, you can also copy and paste images in the Post Content section</p>
-    <p class="lead">Uploading images here will allow you to reuse the images.</p>
-    <!-- UPLOAD FILE TYPES .gif, .jpeg, and .png -->
-
- 
-        <div class="form-group">
-            <form method='POST' enctype='multipart/form-data' name='frmmain' action='<?php htmlspecialchars($PHP_SELF); ?>'>
-            Browse for Image (jpg): <input type="file" name="image_file" size="35">
-            <br/>
-            <input type="submit" value="  Upload File  " name="action">
-            </form>
-        </div>
-        <!-- END UPLOAD FILE TYPES .gif, .jpeg, and .png -->
    
 </div>
+
+</div> <!-- col outer content-->
+
 
 
 
