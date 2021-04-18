@@ -20,12 +20,19 @@ require ('../siteid.php');
 require ('functions.php');
 require ('../css/talis.css');
 ?>
+<style>
+.aButton {
+	background-color:transparent;
+	text-color:#333;
+}
+</style>
+
 </head>
 <body style="padding-top:110px;">
 <div class="container-fluid h-100">
     
                <nav class="header sticky navbar navbar-expand-lg 
-                                navbar-light bg-light">
+                                navbar-dark bg-dark">
                     <a class="navbar-brand" href="index.php"><img src="../assets/images/logo_white.png" width="40" /></a>
                     <!-- Hamburger button that toggles the navbar-->
                    <div style="padding:0;padding-right:28px;"> <button  class="navbar-toggler" 
@@ -40,14 +47,14 @@ require ('../css/talis.css');
                     <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse.show" 
                         id="navbarNavAltMarkup">
                        <div class="navbar-nav">
-                           		    <li class="nav-item"><a id="link1" class="nav-link" href="#l1"><div class="aButton" >Menu</div></a></li>
-                          		    <li class="nav-item"><a id="link2" class="nav-link" href="#l2"><div class="aButton" >Links</div></a></li>
-                          		    <li class="nav-item"><a id="link3" class="nav-link" href="#l3"><div class="aButton" >Categories</div></a></li>
-                          		    <li class="nav-item"><a id="link4" class="nav-link" href="#l4"><div class="aButton" >Content</div></a></li>
-                          		    <li class="nav-item"><a id="link5" class="nav-link" href="#l5"><div class="aButton" >Images</div></a></li>
-                          		    <li class="nav-item"><a id="link6" class="nav-link" target="_blank" href="campaigns/index.php"><div class="aButton" >Campaigns</div></a></li>
-                           		    <li class="nav-item disabled"><a id="link7" class="nav-link" href="#l7"><div class="aButton" >Themes</div></a></li>
-                                    <li class="nav-item disabled"><a id="link8" class="nav-link" href="#l8"><div class="aButton" >Users</div></a></li>
+                           		    <li class="nav-item"><a id="link1" class="nav-link" href="#l1"><div class="aButton" ><span style="color:#fff;">Menu</span></div></a></li>
+                          		    <li class="nav-item"><a id="link2" class="nav-link" href="#l2"><div class="aButton" ><span style="color:#fff;">Links</span></div></a></li>
+                          		    <li class="nav-item"><a id="link3" class="nav-link" href="#l3"><div class="aButton" ><span style="color:#fff;">Categories</span></div></a></li>
+                          		    <li class="nav-item"><a id="link4" class="nav-link" href="#l4"><div class="aButton" ><span style="color:#fff;">Content</span></div></a></li>
+                          		    <li class="nav-item"><a id="link5" class="nav-link" href="#l5"><div class="aButton" ><span style="color:#fff;">Images</span></div></a></li>
+                          		    <li class="nav-item"><a id="link6" class="nav-link" target="_blank" href="campaigns/index.php"><div class="aButton" ><span style="color:#fff;">Campaigns</span></div></a></li>
+                           		    <li class="nav-item disabled"><a id="link7" class="nav-link" href="#l7"><div class="aButton" ><span style="color:#fff;">Themes</span></div></a></li>
+                                    <li class="nav-item disabled"><a id="link8" class="nav-link" href="#l8"><div class="aButton" ><span style="color:#fff;">Users</span></div></a></li>
                          </div>
 					  </div>
                 </nav>
@@ -355,10 +362,10 @@ if($result = $mysqli->query("select * from categories where siteid='$siteid' and
 echo "<p>Delete Categories</p>";
 	if($myrow=$result->fetch_object()){
 	do{
-    printf("<p><form method=post action='%s'>
+    printf("<div class='form-group'><p><form method=post action='%s'>
     <input type=submit name='del_category' value='X'>
-    <input type=text name='siteid' value='%s'>
-    <input type=text name='this_cat_id' value='%s'>%s</form></p>", htmlspecialchars($PHP_SELF), $myrow->siteid, $myrow->id, $myrow->catname);
+    <input style='display:none;' type=hidden name='siteid' value='%s'>
+    <input style='display:none;' type=hidden name='this_cat_id' value='%s'>%s</form></p></div>", htmlspecialchars($PHP_SELF), $myrow->siteid, $myrow->id, $myrow->catname);
     }while($myrow=$result->fetch_object());
     } else {
     echo "<p>No categories found<p>";
