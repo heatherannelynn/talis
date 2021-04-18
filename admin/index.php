@@ -119,12 +119,12 @@ require ('../css/talis.css');
 	?>
 	</div>
 
-	<div class="col-md-4">
+	<div class="col">
 	<p>Content<textarea rows=10 cols=20 name="thislisting"><?php echo $thislisting;?></textarea></p>
 	<p>Details<textarea rows=10 cols=20 name="details"><?php echo $details;?></textarea></p>
 	</div>
 
-	<div class="col-md-4">
+	<div class="col">
 	<p>Member ID<input type="text" name="memberid" value="<?php echo $memberid;?>"></p>
 	<p>Target Name<input type="text" name="target_name" value="<?php echo $target_name;?>"></p>
 	<p>Target URL<input type="text" name="target_url" value="<?php echo $target_url;?>"></p>
@@ -143,7 +143,7 @@ require ('../css/talis.css');
 </div>
 <!-- END CREATE CONTENT -->
 </div></div><div class="container"><div class="row">
-	<div class="col-md-4">
+	<div class="col">
 	<!-- LIST - DELETE CONTENT-->
 	<?php
 	$res7=$mysqli->query("SELECT * FROM `classifieds` WHERE siteid='$siteid' and delrec != 'on' ");
@@ -173,7 +173,7 @@ require ('../css/talis.css');
 
 
 	</div></div><div class="container"><div class="row">
-		<div id="l1"  class="col-md-4">
+		<div id="l1"  class="col">
 
 	<?php
 	if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and siteid='$siteid'")){
@@ -216,10 +216,10 @@ require ('../css/talis.css');
 	</div>
 <!-- END ENTER HEADINGS FOR PRIMARY LINKS -->
 
-</div></div><div class="container"><div class="row">
 
 
-	<div id="l2" class="col-md-4">
+
+	<div id="l2" class="col">
 
 	<!-- ENTER TITLES FOR SIDE MENU LINKS -->
 	<?php
@@ -287,7 +287,7 @@ require ('../css/talis.css');
 </div></div><div class="container"><div class="row">
 
 
-	<div id="l3" class="col-md-4">
+	<div id="l3" class="col">
 
 	<!-- CREATE CATEGORIES FOR PRIMARY AND SIDE MENU LINKS -->
 	<?php
@@ -326,10 +326,9 @@ require ('../css/talis.css');
 
 	<input type="hidden" name="siteid" value="<?php echo $siteid;?>">
 	</div>
-	</div></div><div class="container"><div class="row">
 
 
-<div class="col-md-4">Check all categories<br/>associated with this content.
+<div class="col">Check all categories<br/>associated with this content.
 
 <!--<p>TODO make each primary link associate to a different page depending on navigation links as was the original design </p>
 <br/><p>For Example, by clicking on the sidenav/category will brink up new primary links with content specific to the selected category   15 sidenavs / 8 primary navs</p>-->
@@ -345,38 +344,32 @@ for($count = 1; $count < 16; $count++) {
 	}
 
 }
-echo "</div></div>";
 ?>
 </form>
-</div></div></div><div class="container"><div class="row"><div class="col">
 
 <?php
 }
 
-echo "<div class='row'><p>Delete Categories</p></div>";
-echo "<div class='row'>";
 if($result = $mysqli->query("select * from categories where siteid='$siteid' and delrec != 'on'")){
 //echo "<p>These are your current categories.  To delete one, click on the X</p>";
-echo "<p>Categories</p>";
+echo "<p>Delete Categories</p>";
 	if($myrow=$result->fetch_object()){
 	do{
-    printf("<div class='col'><form method=post action='%s'>
+    printf("<p><form method=post action='%s'>
     <input type=submit name='del_category' value='X'>
     <input type=text name='siteid' value='%s'>
-    <input type=text name='this_cat_id' value='%s'>%s</form></div>", htmlspecialchars($PHP_SELF), $myrow->siteid, $myrow->id, $myrow->catname);
+    <input type=text name='this_cat_id' value='%s'>%s</form></p>", htmlspecialchars($PHP_SELF), $myrow->siteid, $myrow->id, $myrow->catname);
     }while($myrow=$result->fetch_object());
     } else {
-    echo "No categories found";
+    echo "<p>No categories found<p>";
     }
 }
-echo "</div>"; // row
 ?>
 
 
-</div>
+</div> <!-- col outer content-->
 
-</div></div><div class="container"><div class="row">
-<div id="l5" class="col-md-4">
+<div id="l5" class="col">
 
     <p>Upload Images</p>
     <p>Upload images will copy to the server, you can also copy and paste images in the Post Content section</p>
