@@ -9,7 +9,7 @@
 
 </head>
 <body style="background-color:#fff;font-family:Raleway, sans-serif;font-size:14pt;">
-<div class="container">
+<div class="container-fluid">
 <?php
 require ('../comm_connect.php');
 require ('../siteid.php');
@@ -234,7 +234,7 @@ VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
 
     echo "Records inserted successfully.";
 
-	var_dump($stmt);
+	//var_dump($stmt);
 
 	} else {
     echo "ERROR: Could not prepare query: $sql. " . mysqli_error($mysqli);
@@ -290,17 +290,19 @@ $mysqli->query("update classifieds set delrec='on' where id='$this_class_id' and
                          </div>
 					  </div>
                 </nav>
-				
- <div class="container"><div class="row">
+<div class="container-fluid"><div class="row">
+<div class="col">				
+<!-- themes coming soon....
+
 <table>
 <td>
 
 
 
-<!-- SELECT/MANAGE - EDIT THEMES -->
+-->
 <?php
 
-
+/*
 if($_POST['save_theme']){
 $themename=$_POST['name'];
 $themedesc=$_POST['themedesc'];
@@ -329,15 +331,17 @@ $themecount++;
 
 
 
-
+*/
 
 ?>
 
-<!-- END SELECT/MANAGE - EDIT THEMES -->
+<!--
 
-</td></table>
-<table><td>
+coming soon...
+END SELECT/MANAGE - EDIT THEMES \
 
+</td></table>-->
+<div class='col'>
 
 
 
@@ -349,7 +353,8 @@ if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and sitei
 	if($myrow3=$res3->fetch_object()){
 	do{
 	printf("<form method=post action=%s>
-	<p><a name='links'>Enter Text for Primary Links</a></p>
+	<p><a name='links'>Main Menu</a></p>
+	<p><span style='font-size:.8em;'>Note* You will associate content for each of these links in the <a href='#createContent'>Create Content</a> section.  Whatever label you give your primary links will be selectable for your content.  You can select multiple links for a single content post.  You can also treat this link as a portal to another URL.</span></p>
 	<input type=text name=link1 value='%s'>
 	<input type=text name=link2 value='%s'>
 	<input type=text name=link3 value='%s'>
@@ -366,7 +371,7 @@ if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and sitei
 
 ?>
 <form method=post action=<?php echo htmlspecialchars($PHP_SELF); ?>>
-	<p><a name='links'>Enter Text for Primary Links</a></p>
+	<p><a name='links'>Main Menu</a></p><p><span style='font-size:.8em;'>Note* You will associate content for each of these links in the <a href='#createContent'>Create Content</a> section.  Whatever label you give your primary links will be selectable for your content.  You can select multiple links for a single content post.  You can also treat this link as a portal to another URL.</span></p>
 	<input type=text name=link1 value='<?php echo $link1; ?>'>
 	<input type=text name=link2 value='<?php echo $link2; ?>'>
 	<input type=text name=link3 value='<?php echo $link3; ?>'>
@@ -382,15 +387,13 @@ if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and sitei
 }
 ?>
 <!-- END ENTER HEADINGS FOR PRIMARY LINKS -->
-</td></table>
-<table><td>
-
+</div><div class='col'>
 <!-- ENTER TITLES FOR SIDE MENU LINKS -->
 <?php
 if($res4 = $mysqli->query("select * from catlinks where delrec != 'on' and siteid='$siteid'")){
 	if($myrow4=$res4->fetch_object()){
 	do{
-	printf("<form method=post action='%s'><p><a name='leftside'>Left Side Menu Items</a></p>
+	printf("<form method=post action='%s'><p><a name='leftside'>Sub Menu</a></p>
 	<p><input type='text' name=sidenav1 value='%s'></p>
 	<p><input type='text' name=sidenav2 value='%s'></p>
 	<p><input type='text' name=sidenav3 value='%s'></p>
@@ -415,7 +418,7 @@ if($res4 = $mysqli->query("select * from catlinks where delrec != 'on' and sitei
 	} while($myrow4=$res4->fetch_object());
 	} else {
 	?>
-	<form method=post action='%s'><p><a name='leftside'>Left Side Menu Items</a></p>
+	<form method=post action='%s'><p><a name='leftside'>Sub Menu</a></p>
 		<p><input type='text' name=sidenav1 value='<?php echo $sidenav1; ?>'></p>
 		<p><input type='text' name=sidenav2 value='<?php echo $sidenav2; ?>'></p>
 		<p><input type='text' name=sidenav3 value='<?php echo $sidenav3; ?>'></p>
@@ -439,9 +442,10 @@ if($res4 = $mysqli->query("select * from catlinks where delrec != 'on' and sitei
 }
 ?>
 <!-- END ENTER TITLES FOR SIDE MENU LINKS -->
-</td></table>
+</div></div>
+<div class="row"><div class='col'>
 
-<table><td>
+
 
 <!-- CREATE CATEGORIES FOR PRIMARY AND SIDE MENU LINKS -->
 <?php
@@ -466,9 +470,9 @@ $sidenav15=$myrow14->sidenav15;
 endwhile;
 ?>
 <form method="post" action="<?php echo htmlspecialchars($PHP_SELF);  ?>">
-<p><a name='categories'>Create Categories</a></p>
+<p><a name='categories'>Categories</a></p>
 <input type="hidden" name="siteid" value="<?php echo $siteid;?>">
-<p>Navigation ID
+<p>Sub Menu
 <select name="navid">
 <option value="sidenav1"><?php echo $sidenav1;?></option>
 <option value="sidenav2"><?php echo $sidenav2;?></option>
@@ -486,10 +490,10 @@ endwhile;
 <option value="sidenav14"><?php echo $sidenav14;?></option>
 <option value="sidenav15"><?php echo $sidenav15;?></option>
 </select></p>
-<p>Category Name<input type="text" name="catname" value="<?php echo $catname;?>"></p>
+<p>Name<input type="text" name="catname" value="<?php echo $catname;?>"></p>
 <p><textarea name="catdesc" rows=5 cols=15></textarea></p>
 <p>Group<input type="text" name="cat_group" value="<?php echo $cat_group;?>"></p>
-<p>Category URL<input type="text" name="cat_url" value="<?php echo $cat_url;?>"></p>
+<p>Link to URL<input type="text" name="cat_url" value="<?php echo $cat_url;?>"></p>
 <p>List Order<input type="text" name="listorder" value="<?php echo $cat_group;?>"></p>
 <p><input style='font-family:verdana,sans-serif;font-size:7.5pt' type="submit" name="create_category" value="Enter"></p>
 
@@ -499,14 +503,8 @@ endif;
 ?>
 
 <!-- END CREATE CATEGORIES FOR PRIMARY AND SIDE MENU LINKS -->
-</td></table>
-
-
-<table><td>
-
 
 <!-- LIST CATEGORIES - DELETE CATEGORIES -->
-<hr>
 <?php
 
 if($result = $mysqli->query("select * from categories where siteid='$siteid' and delrec != 'on'")){
@@ -516,8 +514,8 @@ echo "<p>Categories</p>";
 	do{
     printf("<form method=post action='%s'>
     <input type=submit name='del_category' value='X'>
-    <input type=text name='siteid' value='%s'>
-    <input type=text name='this_cat_id' value='%s'>%s</form>", htmlspecialchars($PHP_SELF), $myrow->siteid, $myrow->id, $myrow->catname);
+    <input type=hidden name='siteid' value='%s'>
+    <input type=hidden name='this_cat_id' value='%s'>%s</form>", htmlspecialchars($PHP_SELF), $myrow->siteid, $myrow->id, $myrow->catname);
     }while($myrow=$result->fetch_object());
     } else {
     echo "No categories found";
@@ -525,26 +523,22 @@ echo "<p>Categories</p>";
 }
 ?>
 <!-- END LIST CATEGORIES - DELETE CATEGORIES -->
+</div>
+<div class='col'>
 
-
-</td></table>
-<table><td>
 
 <!-- UPLOAD FILE TYPES .gif, .jpeg, and .png -->
 
-<p><a name='images'>Upload file script</a></p>
+<p><a name='images'>Upload Images</a></p>
 
 <form method='POST' enctype='multipart/form-data' name='frmmain' action='<?php htmlspecialchars($PHP_SELF); ?>'>
-Browse for Image (jpg): <input type="file" name="image_file" size="35">
+Browse for Image (jpg):<br/><input type="file" name="image_file" size="35">
 <br>
 <input type="submit" value="  Upload File  " name="action">
 </form>
 <!-- END UPLOAD FILE TYPES .gif, .jpeg, and .png -->
-</td></table>
-<table><td>
 
 <!-- CREATE CONTENT -->
-<hr>
 <form method="post" action="<?php echo htmlspecialchars($PHP_SELF);  ?>">
 <p><a name='content'>Create Content</a></p>
 <?php
@@ -598,7 +592,8 @@ echo "</select></p>";
 else:
 echo "<p>No Images found.  Add some.</p>";
 endif;
-?>
+?></div><div class='col'>
+
 <p>Content<textarea rows=10 cols=20 name="thislisting"><?php echo $thislisting;?></textarea></p>
 <p>Details<textarea rows=10 cols=20 name="details"><?php echo $details;?></textarea></p>
 <p>Member ID<input type="text" name="memberid" value="<?php echo $memberid;?>"></p>
@@ -618,10 +613,9 @@ endif;
 </form>
 <!-- END CREATE CONTENT -->
 
-</td></table>
-<table><td>
-
 <!-- LIST - DELETE CONTENT-->
+</div></div>
+<div class='row'><div class='col'>
 <?php
 if($res7=$mysqli->query("SELECT * FROM `classifieds` WHERE siteid='$siteid' and delrec != 'on' ")):
 
@@ -644,7 +638,8 @@ endif;
 
 ?>
 <!-- END LIST - DELETE CONTENT-->
-</td></table></div>
+</div></div></div>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
