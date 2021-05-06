@@ -354,7 +354,6 @@ if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and sitei
 	do{
 	printf("<form method=post action=%s>
 	<p><a name='links'>Main Menu</a></p>
-	<p><span style='font-size:.8em;'>Note* You will associate content for each of these links in the <a href='#createContent'>Create Content</a> section.  Whatever label you give your primary links will be selectable for your content.  You can select multiple links for a single content post.  You can also treat this link as a portal to another URL.</span></p>
 	<input type=text name=link1 value='%s'>
 	<input type=text name=link2 value='%s'>
 	<input type=text name=link3 value='%s'>
@@ -371,7 +370,7 @@ if($res3 = $mysqli->query("select * from weblinks where delrec != 'on' and sitei
 
 ?>
 <form method=post action=<?php echo htmlspecialchars($PHP_SELF); ?>>
-	<p><a name='links'>Main Menu</a></p><p><span style='font-size:.8em;'>Note* You will associate content for each of these links in the <a href='#createContent'>Create Content</a> section.  Whatever label you give your primary links will be selectable for your content.  You can select multiple links for a single content post.  You can also treat this link as a portal to another URL.</span></p>
+	<p><a name='links'>Main Menu</a></p>
 	<input type=text name=link1 value='<?php echo $link1; ?>'>
 	<input type=text name=link2 value='<?php echo $link2; ?>'>
 	<input type=text name=link3 value='<?php echo $link3; ?>'>
