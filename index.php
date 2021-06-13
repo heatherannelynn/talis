@@ -243,6 +243,10 @@ img {
   color: white;
 }
 
+.para  {
+	width:100%;
+}
+
 .pinterest {
   background: #bb0000;
   color: white;
@@ -358,7 +362,7 @@ $link8=$row3->link8;
                 </nav>
   <?php } ?>
                 <!-- Contains the main content of the webpage-->
-                <div class='col-10' id='grab_index'>
+                <div class='container-fluid h-100' id='grab_index'>
                    <?php
                   for($i=0;$i<9;$i++){
 $flag="link".$i;
@@ -368,7 +372,7 @@ $sql="SELECT * FROM classifieds where siteid='".$siteid."' and delrec != 'on' an
 if($res11 = $mysqli->query($sql)){
 	if($row11=$res11->fetch_object()){
 		//echo '<div style="padding-top:120px;"></div>';
-	echo "<div id='".$linkDiv."' style='padding:3px;padding-left:3em;padding-top:120px;'>";
+	echo "<div id='".$linkDiv."'  style='padding:3px;padding-left:3em;padding-top:120px;'>";
 
 		do{
 			if(isset($row11->thislisting)) { $thislisting= $row11->thislisting; }
@@ -386,12 +390,12 @@ if($res11 = $mysqli->query($sql)){
   			if(!isset($row11->contactphone1)) {$contactphone1 = $row11->contactphone1; }
   			if(!isset($row11->contactphone2)) {$contactphone2 = $row11->contactphone2; }
   			if(isset($row11->linkto)) {$linkto = $row11->linkto; }
-		    echo "<div class='row'><div class='col-6 '>";
+		    echo "<div class='row'><div class='col'>";
             printf('<h4>%s</h4>',$linkDiv);
             printf('<h4>%s</h4>',$title);
   			printf('<p style="font-size:.8em;">%s</p></div></div>',$authname);
-  			echo "<div class='row'><div class='col-md-6 col-lg-8'>";
-			printf('<div class="float-left" style="padding-right:1em;"><img class="shadow img-fluid-height" src="%s" /><div style="padding-top:1em;"><p>%s</p></div></div>',$image_name, $details);
+  			echo "<div class='row'><div class='col'>";
+			printf('<div style="padding-right:1em;display:float-left;"><img class="shadow img-fluid-height" src="%s" /><div style="padding-top:1em;"><p>%s</p></div></div>',$image_name, $details);
   			printf('<div style="padding:3px;"><p class="para">%s</p><p>%s Target Name for embedded video file URLS</p><p>%s</p><p>Read More.. %s</p>',$thislisting, $target_name, $embed_code, $target_url);
 			printf('<div class="fluid"><p>Posted By: %s</p><p>%s</p><p>%s</p><p>%s</p><p>%s</p></div>',$contactname,$contactemail,$contactphone1,$contactphone2,$contactnotes);
 		echo "</div></div></div>";
