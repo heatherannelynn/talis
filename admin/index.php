@@ -262,21 +262,21 @@ $mysqli->query("update classifieds set delrec='on' where id='$this_class_id' and
 
 <body style="padding-top:110px;">
 <div class="container-fluid h-100">
-    
-               <nav class="header sticky navbar navbar-expand-lg 
+
+               <nav class="header sticky navbar navbar-expand-lg
                                 navbar-dark bg-dark">
                     <a class="navbar-brand" href="index.php"><img src="../assets/images/logo_white.png" width="40" /></a>
                     <!-- Hamburger button that toggles the navbar-->
-                   <div style="padding:0;padding-right:28px;"> <button  class="navbar-toggler" 
+                   <div style="padding:0;padding-right:28px;"> <button  class="navbar-toggler"
                         type="button" data-toggle="collapse"
-                        data-target="#navbarNavAltMarkup" 
-                        aria-controls="navbarNavAltMarkup" 
+                        data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup"
                         aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button></div>
                     <!-- navbar links -->
-                    <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse.show" 
+                    <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse.show"
                         id="navbarNavAltMarkup">
                        <div class="navbar-nav">
                            		    <li class="nav-item"><a id="link1" class="nav-link" href="#l1"><div class="aButton" ><span style="color:#fff;">Menu</span></div></a></li>
@@ -291,7 +291,7 @@ $mysqli->query("update classifieds set delrec='on' where id='$this_class_id' and
 					  </div>
                 </nav>
 <div class="container-fluid"><div class="row">
-<div class="col">				
+<div class="col">
 <!-- themes coming soon....
 
 <table>
