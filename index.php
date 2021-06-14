@@ -243,10 +243,6 @@ img {
   color: white;
 }
 
-.para  {
-	width:100%;
-}
-
 .pinterest {
   background: #bb0000;
   color: white;
@@ -269,7 +265,7 @@ img {
 		if($myrow3=$res3->fetch_object()){
 
 
-		echo "<div class='col' style='background-color:#333;padding-top:120px;'  id='sidemenu'>";
+		echo "<div class='col-xs-hidden col-sm-hidden col-md' style='background-color:#333;padding-top:120px;'  id='sidemenu'>";
 		echo "<h2><span style='color:#fff;text-decoration:none;'>Central Jersey Gaming News</span></h2>";
 		$sidenav1=$myrow3->sidenav1;
 		$sidenav2=$myrow3->sidenav2;
@@ -327,10 +323,18 @@ $link8=$row3->link8;
                 <!-- Top navbar -->
                <nav class="header sticky navbar navbar-expand-lg
                                 navbar-light bg-light">
-                    <a class="navbar-brand" href="index.php"><img src="../deluber/assets/logo.png" width="40" /></a>
+                    <div style="padding:0;padding-right:8px;"> <button id="sidemenuToggler" class="navbar-toggler"
+                        type="button" data-toggle="expand"
+                        data-target="#sidemenu"
+                        aria-controls="sidemenu"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon hidden"><img src="../deluber/assets/logo.png" width="40" /></span>
+                    </button></div>
+
                     <!-- Hamburger button that toggles the navbar-->
                    <div style="padding:0;padding-right:8px;"> <button class="navbar-toggler"
-                        type="button" data-toggle="collapse"
+                        type="button" id="mainMenu" data-toggle="collapse"
                         data-target="#navbarNavAltMarkup"
                         aria-controls="navbarNavAltMarkup"
                         aria-expanded="false"
@@ -340,7 +344,7 @@ $link8=$row3->link8;
                     <!-- navbar links -->
                     <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-collapse.show"
                         id="navbarNavAltMarkup">
-                       <div class="navbar-nav">
+                       <div class="navbar-nav"><img id="brandLogo" src="../deluber/assets/logo.png" width="40" />
                            		    <li class="nav-item"><a id="link1" class="nav-link" href="#l1"><?php echo $link1; ?></a></li>
                           		    <li class="nav-item"><a id="link2" class="nav-link" href="#l2"><?php echo $link2; ?></a></li>
                           		    <li class="nav-item"><a id="link3" class="nav-link" href="#l3"><?php echo $link3; ?></a></li>
@@ -349,6 +353,10 @@ $link8=$row3->link8;
                           		    <li class="nav-item"><a id="link6" class="nav-link" href="#l6"><?php echo $link6; ?></a></li>
                            		    <li class="nav-item"><a id="link7" class="nav-link" href="#l7"><?php echo $link7; ?></a></li>
                                     <li class="nav-item"><a id="link8" class="nav-link" href="#l8"><?php echo $link8; ?></a></li>
+                                    <li class="nav-item"><a id="connexus" class="nav-link" href="../connexus/"><img style="height:2em;width:2em;" src="../connexus/images/mini_logo_cc.png" /></a></li>
+                                    <li class="nav-item"><a id="deluber" class="nav-link" href="../deluber/"><img style="height:2em;width:2em;" src="../talis/assets/icons/logo_icon.png"  /></a></li>
+                                    <li class="nav-item"><a id="virtuous" class="nav-link" href="../virtuousmerchant/special_occasion.php"><img style="height:2em;width:2em;" src="../virtuousmerchant/images/favicon.ico"  /></a></li>
+
                                         	  <li class="nav-item">
    <div class="input-group col-md-10  col-lg-12">
             <input class="form-control py-2 border-right-0 border" type="search" id="example-search-input">
@@ -362,7 +370,7 @@ $link8=$row3->link8;
                 </nav>
   <?php } ?>
                 <!-- Contains the main content of the webpage-->
-                <div class='container-fluid h-100' id='grab_index'>
+                <div class='col-10' id='grab_index'>
                    <?php
                   for($i=0;$i<9;$i++){
 $flag="link".$i;
@@ -372,7 +380,7 @@ $sql="SELECT * FROM classifieds where siteid='".$siteid."' and delrec != 'on' an
 if($res11 = $mysqli->query($sql)){
 	if($row11=$res11->fetch_object()){
 		//echo '<div style="padding-top:120px;"></div>';
-	echo "<div id='".$linkDiv."'  style='padding:3px;padding-left:3em;padding-top:120px;'>";
+	echo "<div id='".$linkDiv."' style='padding:3px;padding-left:3em;padding-top:120px;'>";
 
 		do{
 			if(isset($row11->thislisting)) { $thislisting= $row11->thislisting; }
@@ -390,13 +398,13 @@ if($res11 = $mysqli->query($sql)){
   			if(!isset($row11->contactphone1)) {$contactphone1 = $row11->contactphone1; }
   			if(!isset($row11->contactphone2)) {$contactphone2 = $row11->contactphone2; }
   			if(isset($row11->linkto)) {$linkto = $row11->linkto; }
-		    echo "<div class='row'><div class='col'>";
-            printf('<h4>%s</h4>',$linkDiv);
+		    echo "<div class='row'><div class='col-6'>";
+            //printf('<h4>%s</h4>',$linkDiv);
             printf('<h4>%s</h4>',$title);
   			printf('<p style="font-size:.8em;">%s</p></div></div>',$authname);
-  			echo "<div class='row'><div class='col'>";
-			printf('<div style="padding-right:1em;display:float-left;"><img class="shadow img-fluid-height" src="%s" /><div style="padding-top:1em;"><p>%s</p></div></div>',$image_name, $details);
-  			printf('<div style="padding:3px;"><p class="para">%s</p><p>%s Target Name for embedded video file URLS</p><p>%s</p><p>Read More.. %s</p>',$thislisting, $target_name, $embed_code, $target_url);
+  			echo "<div class='row'><div class='col-md-6 col-lg-8'>";
+			printf('<div class="float-left" style="padding-right:1em;"><img class="shadow img-fluid-height" src="%s" /><div style="padding-top:1em;"><p>%s</p></div></div>',$image_name, $details);
+  			printf('<div style="padding:3px;"><p class="justify-content-start">%s</p><p>%s Target Name for embedded video file URLS</p><p>%s</p><p>Read More.. %s</p>',$thislisting, $target_name, $embed_code, $target_url);
 			printf('<div class="fluid"><p>Posted By: %s</p><p>%s</p><p>%s</p><p>%s</p><p>%s</p></div>',$contactname,$contactemail,$contactphone1,$contactphone2,$contactnotes);
 		echo "</div></div></div>";
 
@@ -446,6 +454,16 @@ if($res11 = $mysqli->query($sql)){
     </script>
 
 <script>
+
+$( "#mainMenu" ).click(function() {
+  $( "#brandLogo" ).hide();
+
+});
+
+$( "#sidemenuToggler" ).click(function() {
+  $( "#sidemenu" ).toggle();
+      $(window).scrollTop(0);
+});
 
 $( "#link1" ).click(function() {
   $( "#home" ).hide();
@@ -545,12 +563,8 @@ $( "#link8" ).click(function() {
   $( "#l8" ).show();
 
 });
-</script>
-<script>
 $(document).ready(function() {
-$("iframe").addClass('embed-responsive-item');
   $( "#featured" ).show();
-
   $( "#l1" ).show();
   $( "#l2" ).show();
   $( "#l3" ).show();
